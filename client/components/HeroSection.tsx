@@ -121,23 +121,23 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Epic Title */}
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-tight">
+              {/* Refined Title */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="block text-white drop-shadow-2xl mb-4">
-                  ANALYSEZ VOTRE
+                  Analysez votre
                 </span>
                 <span className="block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 animate-pulse-glow">
-                    CV QUANTIQUE
+                    CV Quantique
                   </span>
                 </span>
-                <span className="block text-white/90 text-5xl md:text-6xl lg:text-7xl mt-4">
-                  EN 1 NANO-SECONDE
+                <span className="block text-white/90 text-4xl md:text-5xl lg:text-6xl mt-4">
+                  en 1 nano-seconde
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-2xl md:text-3xl text-white/80 max-w-4xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/80 max-w-4xl leading-relaxed">
                 Découvrez la puissance de l'
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400 font-black">
                   intelligence artificielle quantique
