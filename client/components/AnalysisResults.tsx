@@ -33,32 +33,48 @@ export default function AnalysisResults() {
     { name: "AWS", level: "Intermédiaire", matched: false },
   ];
 
-  const suggestions = [
-    {
-      type: "skill",
-      title: "Ajoutez TensorFlow",
-      description: "Cette compétence magique augmenterait votre score de +20%",
-      impact: "+20%",
-      priority: "high",
-      icon: "🚀",
-    },
-    {
+  // Suggestions dynamiques basées sur l'offre sélectionnée
+  const getSuggestions = () => {
+    const jobSkills = state.selectedJob?.skills || [];
+    const suggestions = [];
+
+    // Suggestions basées sur les compétences de l'offre
+    if (jobSkills.includes("React")) {
+      suggestions.push({
+        type: "skill",
+        title: `Maîtrisez React avancé`,
+        description: `Approfondissez vos connaissances React pour cette offre chez ${state.selectedJob?.company}`,
+        impact: "+18%",
+        priority: "high",
+        icon: "⚛️",
+      });
+    }
+
+    if (jobSkills.includes("TypeScript")) {
+      suggestions.push({
+        type: "skill",
+        title: "Certification TypeScript",
+        description: "Une expertise TypeScript vous démarquerait pour ce poste",
+        impact: "+15%",
+        priority: "medium",
+        icon: "📘",
+      });
+    }
+
+    // Suggestion générale d'amélioration
+    suggestions.push({
       type: "experience",
-      title: "Détaillez vos projets",
-      description: "Ajoutez des métriques quantifiables à vos réalisations",
-      impact: "+15%",
-      priority: "medium",
-      icon: "📊",
-    },
-    {
-      type: "certification",
-      title: "Certification AWS",
-      description: "Une certification Cloud améliorerait votre profil",
+      title: "Projets similaires",
+      description: `Mettez en avant des projets similaires aux besoins de ${state.selectedJob?.company}`,
       impact: "+12%",
       priority: "medium",
-      icon: "☁️",
-    },
-  ];
+      icon: "💼",
+    });
+
+    return suggestions;
+  };
+
+  const suggestions = getSuggestions();
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
