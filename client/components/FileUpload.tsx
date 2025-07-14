@@ -6,7 +6,7 @@ import { useApp } from "@/contexts/AppContext";
 export default function FileUpload() {
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { state, uploadFile, analyzeCV } = useApp();
+  const { state, uploadFile, removeFile, analyzeCV } = useApp();
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
