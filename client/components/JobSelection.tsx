@@ -11,6 +11,9 @@ import {
   Sparkles,
   Zap,
   Star,
+  Rocket,
+  Brain,
+  Shield,
 } from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
 
@@ -31,47 +34,47 @@ export default function JobSelection() {
   const availableJobs: Job[] = [
     {
       id: 1,
-      title: "Développeur Full Stack React/Node.js",
-      company: "TechCorp",
-      location: "Paris, France",
-      type: "CDI",
-      salary: "50-65k €",
-      skills: ["React", "Node.js", "TypeScript", "AWS"],
+      title: "Développeur Quantique React/Node.js",
+      company: "NeuroCorp Industries",
+      location: "Station Alpha, Secteur 7",
+      type: "Mission Permanente",
+      salary: "50-65k Credits",
+      skills: ["React", "Node.js", "TypeScript", "Neural-AWS"],
       description:
-        "Rejoignez notre équipe pour développer des applications web modernes et révolutionner l'expérience utilisateur.",
+        "Rejoignez notre flotte d'élite pour développer des applications interdimensionnelles et révolutionner l'expérience utilisateur galactique.",
     },
     {
       id: 2,
-      title: "Ingénieur Frontend React Senior",
-      company: "StartupX",
-      location: "Lyon, France",
-      type: "CDI",
-      salary: "45-55k €",
-      skills: ["React", "TypeScript", "GraphQL", "Jest"],
+      title: "Ingénieur Frontend Cyber-React",
+      company: "Quantum StartupX",
+      location: "Base Luna, Cratère Tech",
+      type: "Contrat Stellaire",
+      salary: "45-55k Credits",
+      skills: ["React", "TypeScript", "GraphQL", "Cyber-Jest"],
       description:
-        "Nous recherchons un développeur passionné pour notre plateforme SaaS en pleine croissance.",
+        "Nous recherchons un développeur cybernétique pour notre plateforme SaaS multi-dimensionnelle en expansion hyperspace.",
     },
     {
       id: 3,
-      title: "Développeur JavaScript Full Stack",
-      company: "InnovateTech",
-      location: "Remote",
-      type: "Freelance",
-      salary: "400-500 €/jour",
-      skills: ["JavaScript", "React", "Node.js", "MongoDB"],
+      title: "Architecte JavaScript Spatial",
+      company: "Cosmos InnovateTech",
+      location: "Station Orbitale",
+      type: "Mission Freelance",
+      salary: "400-500 Credits/cycle",
+      skills: ["JavaScript", "React", "Node.js", "Quantum-DB"],
       description:
-        "Mission de 6 mois pour développer une nouvelle fonctionnalité révolutionnaire.",
+        "Mission de 6 cycles stellaires pour développer une nouvelle fonctionnalité de téléportation de données révolutionnaire.",
     },
     {
       id: 4,
-      title: "Lead Developer Frontend",
-      company: "BigCorp",
-      location: "Marseille, France",
-      type: "CDI",
-      salary: "55-70k €",
-      skills: ["React", "Vue.js", "Leadership", "Agile"],
+      title: "Commandant Frontend Suprême",
+      company: "MegaCorp Galactic",
+      location: "Metropolis Neo-Mars",
+      type: "Rang Permanent",
+      salary: "55-70k Credits",
+      skills: ["React", "Vue.js", "Neural-Leadership", "Cyber-Agile"],
       description:
-        "Dirigez une équipe de développeurs frontend dans un environnement d'innovation continue.",
+        "Dirigez une armée de développeurs cybernétiques dans un environnement d'innovation continue et de conquête spatiale.",
     },
   ];
 
@@ -83,141 +86,296 @@ export default function JobSelection() {
   return (
     <section
       id="job-selection"
-      className="relative py-24 bg-gradient-to-br from-cv360-magenta-light/20 via-white to-cv360-violet-light/20 overflow-hidden"
+      className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
     >
-      {/* Floating Background Elements */}
+      {/* Advanced Neural Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-r from-cv360-magenta/10 to-cv360-violet/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-cv360-pink/10 to-cv360-purple/10 rounded-full blur-2xl animate-float-delayed"></div>
-        <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-cv360-magenta rounded-full opacity-20 animate-float"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-4 h-4 bg-cv360-violet rounded-full opacity-30 animate-float-delayed"></div>
+        {/* Complex neural network */}
+        <svg className="w-full h-full opacity-20" viewBox="0 0 1000 1000">
+          <defs>
+            <linearGradient id="jobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ec4899" />
+              <stop offset="25%" stopColor="#8b5cf6" />
+              <stop offset="50%" stopColor="#06b6d4" />
+              <stop offset="75%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="#f59e0b" />
+            </linearGradient>
+          </defs>
+
+          {/* Neural grid */}
+          {Array.from({ length: 40 }).map((_, i) => (
+            <line
+              key={i}
+              x1={Math.random() * 1000}
+              y1={Math.random() * 1000}
+              x2={Math.random() * 1000}
+              y2={Math.random() * 1000}
+              stroke="url(#jobGrad)"
+              strokeWidth="1"
+              opacity="0.4"
+              className="animate-pulse"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            />
+          ))}
+        </svg>
+
+        {/* Floating data packets */}
+        {Array.from({ length: 80 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full animate-float opacity-50"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${4 + Math.random() * 8}s`,
+            }}
+          />
+        ))}
+
+        {/* Geometric holograms */}
+        <div className="absolute top-20 left-20 w-48 h-48 border border-pink-500/20 rotate-45 animate-rotate-slow"></div>
+        <div className="absolute bottom-40 right-32 w-32 h-32 border border-violet-500/20 rounded-full animate-pulse-glow"></div>
+        <div className="absolute top-1/2 left-10 w-40 h-40 border border-cyan-500/20 rotate-12 animate-float"></div>
+
+        {/* Energy fields */}
+        <div className="absolute top-1/4 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/5 to-violet-500/5 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 left-20 w-80 h-80 bg-gradient-to-r from-violet-500/5 to-cyan-500/5 rounded-full blur-2xl animate-float"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cv360-magenta/10 to-cv360-violet/10 backdrop-blur-sm border border-cv360-magenta/20 rounded-full px-6 py-2 mb-6">
-            <Target className="h-4 w-4 text-cv360-magenta animate-pulse" />
-            <span className="text-sm font-medium text-cv360-magenta">
-              Étape 2 : Choix Magique
-            </span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        {/* Epic Header */}
+        <div className="text-center mb-20">
+          {/* Mission Badge */}
+          <div className="inline-flex items-center space-x-4 mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full blur animate-pulse-glow"></div>
+              <div className="relative bg-gradient-to-r from-pink-500/10 to-violet-500/10 backdrop-blur-xl border border-white/20 rounded-full px-8 py-4">
+                <div className="flex items-center space-x-3">
+                  <Target className="h-6 w-6 text-pink-400 animate-pulse" />
+                  <span className="text-white font-black text-lg tracking-wider">
+                    ÉTAPE 2: SÉLECTION STRATÉGIQUE
+                  </span>
+                  <Rocket className="h-6 w-6 text-violet-400 animate-pulse" />
+                </div>
+              </div>
+            </div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Choisissez votre{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cv360-magenta to-cv360-violet">
-              offre de rêve
+          {/* Main Title */}
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+            CHOISISSEZ VOTRE
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 animate-pulse-glow">
+              MISSION SPATIALE
             </span>
           </h2>
-          <p className="text-xl text-cv360-gray max-w-2xl mx-auto leading-relaxed">
-            Sélectionnez l'offre d'emploi qui vous intéresse pour découvrir
-            votre score de matching magique !
+
+          <p className="text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
+            Sélectionnez votre
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400 font-black">
+              {" "}
+              mission galactique{" "}
+            </span>
+            pour découvrir votre compatibilité quantique avec notre IA suprême !
           </p>
+
+          {/* Mission Counter */}
+          <div className="inline-flex items-center space-x-2 glass-effect rounded-2xl px-6 py-3 border border-white/20">
+            <Brain className="h-5 w-5 text-cyan-400 animate-pulse" />
+            <span className="text-white font-bold">
+              {availableJobs.length} MISSIONS DISPONIBLES
+            </span>
+          </div>
         </div>
 
-        <div className="grid gap-8">
+        {/* Jobs Grid */}
+        <div className="grid gap-12">
           {availableJobs.map((job, index) => (
             <div
               key={job.id}
-              className="relative group glass-effect rounded-3xl border border-white/30 shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
+              className="relative group perspective-1000 transform hover:scale-105 transition-all duration-500"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Animated Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cv360-magenta/5 to-cv360-violet/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-glow"></div>
+              {/* 3D Container */}
+              <div className="relative transform-style-preserve-3d group-hover:rotate-x-3 group-hover:rotate-y-3 transition-all duration-500">
+                {/* Main job card */}
+                <div className="relative glass-effect rounded-3xl border border-white/20 backdrop-blur-2xl shadow-2xl overflow-hidden">
+                  {/* Animated background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-violet-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-glow"></div>
 
-              <div className="relative p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-                  {/* Job Info */}
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-start space-x-6">
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-gradient-to-r from-cv360-magenta to-cv360-violet rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                          <div className="relative w-16 h-16 bg-gradient-to-r from-cv360-magenta to-cv360-violet rounded-2xl flex items-center justify-center shadow-lg">
-                            <Building className="h-8 w-8 text-white" />
+                  {/* Holographic scan effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform skew-x-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <div className="relative p-10">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+                      {/* Job Information */}
+                      <div className="flex-1">
+                        <div className="flex items-start justify-between mb-8">
+                          <div className="flex items-start space-x-8">
+                            {/* 3D Company Icon */}
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-500 rounded-3xl blur opacity-40 group-hover:opacity-70 transition-opacity animate-pulse-glow"></div>
+                              <div className="relative w-20 h-20 bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 rounded-3xl flex items-center justify-center shadow-2xl border border-white/30">
+                                <Building className="h-10 w-10 text-white" />
+
+                                {/* Orbital rings */}
+                                <div className="absolute inset-0 border border-pink-500/30 rounded-3xl animate-rotate-slow"></div>
+                                <div
+                                  className="absolute inset-2 border border-violet-500/30 rounded-3xl animate-rotate-slow"
+                                  style={{ animationDirection: "reverse" }}
+                                ></div>
+                              </div>
+                            </div>
+
+                            <div className="flex-1">
+                              <h3 className="text-3xl font-black text-white mb-3 leading-tight">
+                                {job.title}
+                              </h3>
+                              <p className="text-white/80 font-bold text-xl mb-2">
+                                {job.company}
+                              </p>
+                              <div className="text-sm text-white/60 font-mono tracking-wide">
+                                ID: MISSION-{job.id.toString().padStart(4, "0")}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Status Badge */}
+                          <div className="flex items-center space-x-2 glass-effect rounded-xl px-4 py-2 border border-white/20">
+                            <Star className="h-5 w-5 text-pink-400 animate-pulse" />
+                            <span className="text-pink-300 font-bold text-sm">
+                              PRIORITÉ ALPHA
+                            </span>
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                            {job.title}
-                          </h3>
-                          <p className="text-cv360-gray font-semibold text-lg">
-                            {job.company}
-                          </p>
+
+                        {/* Mission Details Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                          <div className="flex items-center space-x-3 glass-effect-dark rounded-xl p-4 border border-white/10">
+                            <MapPin className="h-6 w-6 text-pink-400" />
+                            <div>
+                              <div className="text-white/60 text-xs font-bold">
+                                LOCALISATION
+                              </div>
+                              <div className="text-white font-bold">
+                                {job.location}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-3 glass-effect-dark rounded-xl p-4 border border-white/10">
+                            <Clock className="h-6 w-6 text-violet-400" />
+                            <div>
+                              <div className="text-white/60 text-xs font-bold">
+                                TYPE MISSION
+                              </div>
+                              <div className="text-white font-bold">
+                                {job.type}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-3 glass-effect-dark rounded-xl p-4 border border-white/10">
+                            <TrendingUp className="h-6 w-6 text-cyan-400" />
+                            <div>
+                              <div className="text-white/60 text-xs font-bold">
+                                RÉCOMPENSE
+                              </div>
+                              <div className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400 font-black text-xl">
+                                {job.salary}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Mission Description */}
+                        <p className="text-white/80 text-lg leading-relaxed mb-8 glass-effect-dark rounded-xl p-6 border border-white/10">
+                          {job.description}
+                        </p>
+
+                        {/* Skills Requirements */}
+                        <div className="mb-10">
+                          <div className="text-white/80 font-bold mb-4 flex items-center space-x-2">
+                            <Shield className="h-5 w-5 text-cyan-400" />
+                            <span>COMPÉTENCES REQUISES:</span>
+                          </div>
+                          <div className="flex flex-wrap gap-3">
+                            {job.skills.map((skill, skillIndex) => (
+                              <Badge
+                                key={skillIndex}
+                                className="bg-gradient-to-r from-pink-500/20 to-violet-500/20 text-white border border-pink-500/30 px-4 py-2 text-sm font-bold rounded-xl backdrop-blur"
+                              >
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Mission Accept Button */}
+                        <div className="flex justify-center lg:justify-start">
+                          <Button
+                            onClick={() => selectJob(job)}
+                            size="lg"
+                            className="relative bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white px-16 py-6 text-xl font-black rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-300 overflow-hidden border border-white/20"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                            <Zap className="mr-4 h-6 w-6 relative z-10 animate-pulse" />
+                            <span className="relative z-10">
+                              ACCEPTER LA MISSION
+                            </span>
+                          </Button>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <Star className="h-5 w-5 text-cv360-magenta animate-pulse" />
-                        <span className="text-sm font-medium text-cv360-magenta">
-                          Recommandé
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                      <div className="flex items-center space-x-3 text-cv360-gray">
-                        <MapPin className="h-5 w-5 text-cv360-magenta" />
-                        <span className="font-medium">{job.location}</span>
-                      </div>
-                      <div className="flex items-center space-x-3 text-cv360-gray">
-                        <Clock className="h-5 w-5 text-cv360-violet" />
-                        <span className="font-medium">{job.type}</span>
-                      </div>
-                      <div className="flex items-center space-x-3 text-cv360-gray">
-                        <TrendingUp className="h-5 w-5 text-cv360-pink" />
-                        <span className="font-bold text-cv360-magenta text-lg">
-                          {job.salary}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-cv360-gray text-lg leading-relaxed mb-6">
-                      {job.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-3 mb-8">
-                      {job.skills.map((skill, skillIndex) => (
-                        <Badge
-                          key={skillIndex}
-                          className="bg-gradient-to-r from-cv360-magenta/10 to-cv360-violet/10 text-cv360-magenta border border-cv360-magenta/20 px-3 py-1 text-sm font-medium"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <div className="flex justify-center lg:justify-start">
-                      <Button
-                        onClick={() => selectJob(job)}
-                        size="lg"
-                        className="relative bg-gradient-to-r from-cv360-magenta to-cv360-violet hover:from-cv360-magenta/90 hover:to-cv360-violet/90 text-white px-12 py-4 text-lg font-bold rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-cv360-violet to-cv360-purple opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                        <Zap className="mr-3 h-6 w-6 relative z-10 animate-pulse" />
-                        <span className="relative z-10">
-                          Calculer mon matching
-                        </span>
-                      </Button>
                     </div>
                   </div>
+
+                  {/* Floating holographic elements */}
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-2 h-2 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full animate-float opacity-60"
+                      style={{
+                        left: `${10 + Math.random() * 80}%`,
+                        top: `${10 + Math.random() * 80}%`,
+                        animationDelay: `${i * 0.7}s`,
+                      }}
+                    />
+                  ))}
+
+                  {/* Corner UI elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-pink-500 rounded-full animate-pulse opacity-60"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-violet-500 rounded-full animate-pulse opacity-60"></div>
                 </div>
               </div>
-
-              {/* Decorative floating elements */}
-              <div className="absolute top-4 right-4 w-3 h-3 bg-cv360-magenta rounded-full opacity-30 animate-float"></div>
-              <div className="absolute bottom-4 left-4 w-2 h-2 bg-cv360-violet rounded-full opacity-40 animate-float-delayed"></div>
             </div>
           ))}
         </div>
 
-        {/* Encouragement Message */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-3 glass-effect rounded-2xl px-8 py-4 border border-white/30">
-            <Sparkles className="h-6 w-6 text-cv360-magenta animate-pulse" />
-            <span className="text-lg font-medium text-cv360-gray">
-              Choisissez une offre pour découvrir la magie du matching IA !
+        {/* Mission Briefing */}
+        <div className="mt-20 text-center">
+          <div className="inline-flex items-center space-x-4 glass-effect rounded-3xl px-12 py-6 border border-white/20">
+            <Sparkles className="h-8 w-8 text-pink-400 animate-pulse" />
+            <span className="text-2xl font-black text-white">
+              SÉLECTIONNEZ UNE MISSION POUR ACTIVER LE SCANNER QUANTIQUE !
             </span>
+            <Brain className="h-8 w-8 text-violet-400 animate-pulse" />
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .rotate-x-3 {
+          transform: rotateX(3deg);
+        }
+        .rotate-y-3 {
+          transform: rotateY(3deg);
+        }
+      `}</style>
     </section>
   );
 }
