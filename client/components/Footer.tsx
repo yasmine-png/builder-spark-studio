@@ -21,18 +21,6 @@ export default function Footer() {
       { name: "Missions", href: "#jobs", icon: "🚀" },
       { name: "API Quantique", href: "#api", icon: "⚡" },
     ],
-    company: [
-      { name: "À Propos", href: "#about", icon: "🌟" },
-      { name: "Notre Équipe", href: "#team", icon: "👥" },
-      { name: "Carrières", href: "#careers", icon: "💼" },
-      { name: "Blog Tech", href: "#blog", icon: "📡" },
-    ],
-    resources: [
-      { name: "Centre d'Aide", href: "#help", icon: "🛟" },
-      { name: "Guides", href: "#guides", icon: "📚" },
-      { name: "Formations", href: "#webinars", icon: "🎓" },
-      { name: "Templates", href: "#templates", icon: "📄" },
-    ],
     legal: [
       { name: "Mentions Légales", href: "#legal", icon: "⚖️" },
       { name: "Confidentialité", href: "#privacy", icon: "🔒" },
