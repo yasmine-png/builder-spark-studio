@@ -184,10 +184,10 @@ export default function FileUpload() {
                     </div>
                     <div>
                       <p className="font-bold text-xl text-gray-900 mb-1">
-                        {file.name}
+                        {state.uploadedFile.name}
                       </p>
                       <p className="text-cv360-gray">
-                        {formatFileSize(file.size)}
+                        {formatFileSize(state.uploadedFile.size)}
                       </p>
                     </div>
                   </div>
