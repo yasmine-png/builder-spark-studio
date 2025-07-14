@@ -163,15 +163,15 @@ export default function JobSelection() {
           </div>
 
           {/* Main Title */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
-            CHOISISSEZ VOTRE
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+            Choisissez votre
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 animate-pulse-glow">
-              MISSION SPATIALE
+              Mission Spatiale
             </span>
           </h2>
 
-          <p className="text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
+          <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
             Sélectionnez votre
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400 font-black">
               {" "}
