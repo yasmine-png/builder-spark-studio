@@ -194,7 +194,7 @@ export default function FileUpload() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={removeFile}
+                    onClick={handleRemoveFile}
                     className="text-cv360-gray hover:text-red-500 hover:bg-red-50 rounded-xl"
                   >
                     <X className="h-5 w-5" />
