@@ -58,9 +58,8 @@ export default function FileUpload() {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
   };
 
-  const removeFile = () => {
-    // Reset the uploaded file by updating the context
-    // We need to modify the context to handle file removal
+  const handleRemoveFile = () => {
+    removeFile();
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
