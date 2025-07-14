@@ -59,24 +59,14 @@ export default function FileUpload() {
   };
 
   const removeFile = () => {
-    setFile(null);
+    uploadFile(null as any);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
   };
 
-  const analyzeCV = () => {
-    if (!file) return;
-    setIsAnalyzing(true);
-
-    // Simulate analysis
-    setTimeout(() => {
-      setIsAnalyzing(false);
-      // Trigger scroll to results section
-      document
-        .getElementById("results")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 3000);
+  const handleAnalyzeCV = () => {
+    analyzeCV();
   };
 
   return (
