@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        cv360: {
+          blue: "hsl(var(--cv360-blue))",
+          "blue-light": "hsl(var(--cv360-blue-light))",
+          cyan: "hsl(var(--cv360-cyan))",
+          "cyan-light": "hsl(var(--cv360-cyan-light))",
+          purple: "hsl(var(--cv360-purple))",
+          "purple-light": "hsl(var(--cv360-purple-light))",
+          gray: "hsl(var(--cv360-gray))",
+          "gray-light": "hsl(var(--cv360-gray-light))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
