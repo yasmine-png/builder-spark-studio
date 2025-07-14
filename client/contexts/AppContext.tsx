@@ -27,6 +27,7 @@ interface AppState {
 interface AppContextType {
   state: AppState;
   uploadFile: (file: File) => void;
+  removeFile: () => void;
   analyzeCV: () => Promise<void>;
   selectJob: (job: Job) => void;
   resetApp: () => void;
