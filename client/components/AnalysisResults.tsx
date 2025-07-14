@@ -105,9 +105,17 @@ export default function AnalysisResults() {
               Score Magique
             </span>
           </h2>
+          <div className="bg-gradient-to-r from-cv360-pink/10 to-cv360-purple/10 backdrop-blur-sm border border-cv360-pink/20 rounded-2xl px-6 py-4 mb-6 max-w-3xl mx-auto">
+            <p className="text-lg font-semibold text-cv360-pink mb-1">
+              Matching pour : {state.selectedJob.title}
+            </p>
+            <p className="text-cv360-gray">
+              chez {state.selectedJob.company} • {state.selectedJob.location}
+            </p>
+          </div>
           <p className="text-xl text-cv360-gray max-w-2xl mx-auto leading-relaxed">
-            Découvrez votre potentiel et obtenez des conseils personnalisés pour
-            briller encore plus !
+            Découvrez votre compatibilité et obtenez des conseils personnalisés
+            pour optimiser votre profil pour cette offre !
           </p>
         </div>
 
