@@ -209,13 +209,13 @@ export default function FileUpload() {
                 </div>
 
                 <Button
-                  onClick={analyzeCV}
-                  disabled={isAnalyzing}
+                  onClick={handleAnalyzeCV}
+                  disabled={state.isAnalyzing}
                   size="lg"
                   className="relative w-full bg-gradient-to-r from-cv360-pink to-cv360-purple hover:from-cv360-pink/90 hover:to-cv360-purple/90 text-white font-bold py-4 text-lg rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cv360-purple to-cv360-violet opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                  {isAnalyzing ? (
+                  {state.isAnalyzing ? (
                     <>
                       <div className="relative z-10 flex items-center justify-center">
                         <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
@@ -230,7 +230,7 @@ export default function FileUpload() {
                   )}
                 </Button>
 
-                {isAnalyzing && (
+                {state.isAnalyzing && (
                   <div className="mt-8 glass-effect rounded-2xl p-6 border border-white/30">
                     <div className="space-y-4">
                       <div className="flex items-center space-x-4">
