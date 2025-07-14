@@ -54,6 +54,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }));
   };
 
+  const removeFile = () => {
+    setState((prev) => ({
+      ...prev,
+      uploadedFile: null,
+      showResults: false,
+      matchingScore: null,
+      selectedJob: null,
+      isAnalyzing: false,
+    }));
+  };
+
   const analyzeCV = async () => {
     if (!state.uploadedFile) return;
 
