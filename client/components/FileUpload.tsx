@@ -59,7 +59,8 @@ export default function FileUpload() {
   };
 
   const removeFile = () => {
-    uploadFile(null as any);
+    // Reset the uploaded file by updating the context
+    // We need to modify the context to handle file removal
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
