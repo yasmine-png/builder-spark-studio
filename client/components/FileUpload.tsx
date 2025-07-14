@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, FileText, X, CheckCircle, Sparkles, Zap } from "lucide-react";
+import { useApp } from "@/contexts/AppContext";
 
 export default function FileUpload() {
   const [dragOver, setDragOver] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { state, uploadFile, analyzeCV } = useApp();
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
