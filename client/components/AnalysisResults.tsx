@@ -13,9 +13,17 @@ import {
   Zap,
   Star,
 } from "lucide-react";
+import { useApp } from "@/contexts/AppContext";
 
 export default function AnalysisResults() {
-  const matchingScore = 87;
+  const { state } = useApp();
+
+  // Ne pas afficher cette section si les conditions ne sont pas remplies
+  if (!state.showResults || !state.selectedJob || !state.matchingScore) {
+    return null;
+  }
+
+  const matchingScore = state.matchingScore;
   const detectedSkills = [
     { name: "React", level: "Expert", matched: true },
     { name: "TypeScript", level: "Avancé", matched: true },
