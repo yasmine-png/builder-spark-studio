@@ -1,6 +1,17 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Upload, FileText, X, CheckCircle, Sparkles, Zap } from "lucide-react";
+import {
+  Upload,
+  FileText,
+  X,
+  CheckCircle,
+  Sparkles,
+  Zap,
+  Brain,
+  Target,
+  Rocket,
+  Cpu,
+} from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
 
 export default function FileUpload() {
@@ -72,121 +83,296 @@ export default function FileUpload() {
   return (
     <section
       id="analyze"
-      className="relative py-24 bg-gradient-to-br from-cv360-pink-light/20 via-white to-cv360-purple-light/20 overflow-hidden"
+      className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
     >
-      {/* Floating Background Elements */}
+      {/* Animated 3D Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-cv360-pink/10 to-cv360-purple/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-cv360-violet/10 to-cv360-magenta/10 rounded-full blur-2xl animate-float-delayed"></div>
-      </div>
+        {/* Neural Network Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <svg className="w-full h-full" viewBox="0 0 1000 1000">
+            <defs>
+              <linearGradient
+                id="neuralGrad"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stopColor="#ec4899" />
+                <stop offset="50%" stopColor="#8b5cf6" />
+                <stop offset="100%" stopColor="#06b6d4" />
+              </linearGradient>
+            </defs>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cv360-pink/10 to-cv360-purple/10 backdrop-blur-sm border border-cv360-pink/20 rounded-full px-6 py-2 mb-6">
-            <Sparkles className="h-4 w-4 text-cv360-pink animate-pulse" />
-            <span className="text-sm font-medium text-cv360-pink">
-              Analyse IA Ultra-Rapide
-            </span>
-          </div>
+            {/* Nodes */}
+            {Array.from({ length: 20 }).map((_, i) => (
+              <circle
+                key={i}
+                cx={Math.random() * 1000}
+                cy={Math.random() * 1000}
+                r="3"
+                fill="url(#neuralGrad)"
+                className="animate-pulse"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              />
+            ))}
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Téléversez votre{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cv360-pink to-cv360-purple">
-              CV magique
-            </span>
-          </h2>
-          <p className="text-xl text-cv360-gray max-w-2xl mx-auto leading-relaxed">
-            Déposez votre CV et découvrez la magie de l'IA en action. Analyse
-            complète en quelques secondes !
-          </p>
+            {/* Connections */}
+            {Array.from({ length: 15 }).map((_, i) => (
+              <line
+                key={i}
+                x1={Math.random() * 1000}
+                y1={Math.random() * 1000}
+                x2={Math.random() * 1000}
+                y2={Math.random() * 1000}
+                stroke="url(#neuralGrad)"
+                strokeWidth="1"
+                opacity="0.3"
+                className="animate-pulse"
+                style={{ animationDelay: `${i * 0.2}s` }}
+              />
+            ))}
+          </svg>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 50 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full animate-float opacity-60"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 10}s`,
+                animationDuration: `${5 + Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Geometric Shapes */}
+        <div className="absolute top-20 left-20 w-32 h-32 border border-pink-500/30 rotate-45 animate-rotate-slow"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 border border-violet-500/30 rounded-full animate-pulse-glow"></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 border border-cyan-500/30 rotate-12 animate-float"></div>
+
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/3 right-20 w-64 h-64 bg-gradient-to-r from-pink-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 left-20 w-48 h-48 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 rounded-full blur-2xl animate-float"></div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        {/* Hero Header */}
+        <div className="text-center mb-20">
+          {/* Floating Badge */}
+          <div className="inline-flex items-center space-x-3 mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full blur animate-pulse-glow"></div>
+              <div className="relative bg-gradient-to-r from-pink-500/10 to-violet-500/10 backdrop-blur-xl border border-white/20 rounded-full px-8 py-4">
+                <div className="flex items-center space-x-3">
+                  <Brain className="h-6 w-6 text-pink-400 animate-pulse" />
+                  <span className="text-white font-bold text-lg">
+                    IA NOUVELLE GÉNÉRATION
+                  </span>
+                  <Cpu className="h-6 w-6 text-violet-400 animate-pulse" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Title */}
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-tight mb-8">
+            <span className="block text-white drop-shadow-2xl">ANALYSE</span>
+            <span className="block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 animate-pulse-glow">
+                FUTURISTE
+              </span>
+            </span>
+            <span className="block text-white/90 text-5xl md:text-6xl lg:text-7xl">
+              DE VOTRE CV
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
+            Découvrez la puissance de l'intelligence artificielle pour
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400 font-bold">
+              {" "}
+              révolutionner{" "}
+            </span>
+            votre carrière professionnelle
+          </p>
+
+          {/* Tech Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                icon: Target,
+                value: "99.9%",
+                label: "Précision IA",
+                color: "from-pink-400 to-rose-400",
+              },
+              {
+                icon: Rocket,
+                value: "< 3s",
+                label: "Analyse Ultra-Rapide",
+                color: "from-violet-400 to-purple-400",
+              },
+              {
+                icon: Sparkles,
+                value: "∞",
+                label: "Possibilités",
+                color: "from-cyan-400 to-blue-400",
+              },
+            ].map((stat, index) => (
+              <div key={index} className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                <div className="relative glass-effect rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 transform hover:scale-105">
+                  <stat.icon
+                    className={`h-8 w-8 mx-auto mb-3 text-transparent bg-clip-text bg-gradient-to-r ${stat.color}`}
+                  />
+                  <div
+                    className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-2`}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-white/70 text-sm font-medium">
+                    {stat.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Upload Interface */}
+        <div className="max-w-4xl mx-auto">
           {!state.uploadedFile ? (
             <div
-              className={`relative glass-effect border-2 border-dashed rounded-3xl p-16 transition-all duration-500 transform hover:scale-105 ${
-                dragOver
-                  ? "border-cv360-pink bg-gradient-to-br from-cv360-pink/10 to-cv360-purple/10 shadow-2xl"
-                  : "border-cv360-gray-light hover:border-cv360-pink/50 hover:bg-gradient-to-br hover:from-cv360-pink/5 hover:to-cv360-purple/5"
+              className={`relative group perspective-1000 transition-all duration-700 ${
+                dragOver ? "scale-105" : "hover:scale-102"
               }`}
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
             >
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cv360-pink/5 via-cv360-purple/5 to-cv360-violet/5 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              {/* 3D Container */}
+              <div
+                className={`relative transform-style-preserve-3d transition-all duration-700 ${
+                  dragOver
+                    ? "rotate-x-12 rotate-y-12"
+                    : "group-hover:rotate-x-6 group-hover:rotate-y-6"
+                }`}
+              >
+                {/* Main Upload Card */}
+                <div className="relative glass-effect rounded-3xl p-16 border border-white/20 backdrop-blur-2xl shadow-2xl">
+                  {/* Animated Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-violet-500/5 to-cyan-500/5 rounded-3xl animate-pulse-glow"></div>
 
-              <div className="relative text-center">
-                <div className="relative mb-8">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cv360-pink to-cv360-purple rounded-full blur opacity-30 animate-pulse-glow"></div>
-                  <Upload
-                    className={`relative mx-auto h-20 w-20 mb-6 transition-all duration-500 ${
-                      dragOver
-                        ? "text-cv360-pink scale-110"
-                        : "text-cv360-gray hover:text-cv360-pink"
-                    }`}
-                  />
+                  {/* Holographic Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-3xl transform skew-x-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <div className="relative text-center">
+                    {/* 3D Upload Icon */}
+                    <div className="relative mb-12">
+                      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full blur-2xl opacity-50 animate-pulse-glow scale-150"></div>
+                      <div className="relative w-32 h-32 mx-auto">
+                        <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-violet-500/20 rounded-full animate-rotate-slow"></div>
+                        <div
+                          className="absolute inset-4 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 rounded-full animate-rotate-slow"
+                          style={{ animationDirection: "reverse" }}
+                        ></div>
+                        <div className="absolute inset-8 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full flex items-center justify-center">
+                          <Upload className="h-12 w-12 text-white animate-bounce" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-4xl font-black text-white mb-4">
+                      ZONE DE TÉLÉPORTATION
+                    </h3>
+                    <p className="text-xl text-white/80 mb-8">
+                      Glissez votre CV dans le portail quantique
+                    </p>
+
+                    {/* Upload Button */}
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileSelect}
+                      className="hidden"
+                    />
+
+                    <Button
+                      onClick={() => fileInputRef.current?.click()}
+                      className="relative bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-300 mb-8 overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                      <Zap className="mr-3 h-6 w-6 relative z-10 animate-pulse" />
+                      <span className="relative z-10">ACTIVER LE SCANNER</span>
+                    </Button>
+
+                    {/* File Types */}
+                    <div className="flex items-center justify-center space-x-6 text-white/60">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 bg-pink-500 rounded-full animate-pulse"></div>
+                        <span className="font-bold">PDF</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div
+                          className="w-3 h-3 bg-violet-500 rounded-full animate-pulse"
+                          style={{ animationDelay: "0.5s" }}
+                        ></div>
+                        <span className="font-bold">DOC</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div
+                          className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse"
+                          style={{ animationDelay: "1s" }}
+                        ></div>
+                        <span className="font-bold">DOCX</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Elements */}
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-2 h-2 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full animate-float opacity-60"
+                      style={{
+                        left: `${10 + Math.random() * 80}%`,
+                        top: `${10 + Math.random() * 80}%`,
+                        animationDelay: `${i * 0.5}s`,
+                      }}
+                    />
+                  ))}
                 </div>
-
-                <div className="mb-8">
-                  <p className="text-2xl font-bold text-gray-900 mb-3">
-                    Glissez-déposez votre CV ici
-                  </p>
-                  <p className="text-lg text-cv360-gray">
-                    ou cliquez pour ouvrir l'explorateur magique
-                  </p>
-                </div>
-
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={handleFileSelect}
-                  className="hidden"
-                />
-
-                <Button
-                  onClick={() => fileInputRef.current?.click()}
-                  size="lg"
-                  className="relative bg-gradient-to-r from-cv360-pink to-cv360-purple hover:from-cv360-pink/90 hover:to-cv360-purple/90 text-white px-12 py-4 text-lg font-semibold rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden mb-6"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cv360-purple to-cv360-violet opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                  <Zap className="mr-3 h-6 w-6 relative z-10" />
-                  <span className="relative z-10">Parcourir les fichiers</span>
-                </Button>
-
-                <p className="text-sm text-cv360-gray">
-                  Formats magiques acceptés:{" "}
-                  <span className="font-semibold text-cv360-pink">
-                    PDF, DOC, DOCX
-                  </span>{" "}
-                  (max 10MB)
-                </p>
               </div>
-
-              {/* Floating decorative elements */}
-              <div className="absolute top-6 right-6 w-6 h-6 bg-cv360-pink rounded-full opacity-20 animate-float"></div>
-              <div className="absolute bottom-6 left-6 w-4 h-4 bg-cv360-purple rounded-full opacity-30 animate-float-delayed"></div>
             </div>
           ) : (
-            <div className="relative glass-effect rounded-3xl p-8 border border-cv360-pink/30 shadow-2xl transform hover:scale-105 transition-all duration-300">
-              {/* Animated background glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cv360-pink/10 to-cv360-purple/10 rounded-3xl animate-pulse-glow"></div>
+            // File Uploaded State
+            <div className="relative glass-effect rounded-3xl p-12 border border-white/20 backdrop-blur-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-3xl animate-pulse-glow"></div>
 
               <div className="relative">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center space-x-6">
+                    {/* 3D File Icon */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-cv360-pink to-cv360-purple rounded-2xl blur opacity-50"></div>
-                      <div className="relative w-16 h-16 bg-gradient-to-r from-cv360-pink to-cv360-purple rounded-2xl flex items-center justify-center shadow-lg">
-                        <FileText className="h-8 w-8 text-white" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur opacity-50"></div>
+                      <div className="relative w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                        <FileText className="h-10 w-10 text-white" />
                       </div>
                     </div>
                     <div>
-                      <p className="font-bold text-xl text-gray-900 mb-1">
+                      <p className="font-black text-2xl text-white mb-2">
                         {state.uploadedFile.name}
                       </p>
-                      <p className="text-cv360-gray">
+                      <p className="text-white/70 text-lg">
                         {formatFileSize(state.uploadedFile.size)}
                       </p>
                     </div>
@@ -195,68 +381,72 @@ export default function FileUpload() {
                     variant="ghost"
                     size="sm"
                     onClick={handleRemoveFile}
-                    className="text-cv360-gray hover:text-red-500 hover:bg-red-50 rounded-xl"
+                    className="text-white/70 hover:text-red-400 hover:bg-red-500/10 rounded-xl p-3"
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-6 w-6" />
                   </Button>
                 </div>
 
-                <div className="flex items-center space-x-3 mb-8 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
-                  <CheckCircle className="h-6 w-6 text-green-500 animate-pulse" />
-                  <span className="text-green-700 font-semibold">
-                    Fichier validé et prêt pour l'analyse magique !
+                {/* Success Badge */}
+                <div className="flex items-center space-x-3 mb-8 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl border border-green-500/30">
+                  <CheckCircle className="h-8 w-8 text-green-400 animate-pulse" />
+                  <span className="text-green-300 font-bold text-xl">
+                    FICHIER SCANNÉ ET VALIDÉ ✨
                   </span>
                 </div>
 
+                {/* Analyze Button */}
                 <Button
                   onClick={handleAnalyzeCV}
                   disabled={state.isAnalyzing}
-                  size="lg"
-                  className="relative w-full bg-gradient-to-r from-cv360-pink to-cv360-purple hover:from-cv360-pink/90 hover:to-cv360-purple/90 text-white font-bold py-4 text-lg rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
+                  className="relative w-full bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white font-black py-6 text-xl rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cv360-purple to-cv360-violet opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                   {state.isAnalyzing ? (
-                    <>
-                      <div className="relative z-10 flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
-                        <span>Magie en cours...</span>
-                      </div>
-                    </>
+                    <div className="relative z-10 flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mr-4"></div>
+                      <span>ANALYSE QUANTIQUE EN COURS...</span>
+                    </div>
                   ) : (
                     <span className="relative z-10 flex items-center justify-center">
-                      <Sparkles className="mr-3 h-6 w-6 animate-pulse" />
-                      Analyser mon CV avec l'IA
+                      <Rocket className="mr-3 h-6 w-6 animate-pulse" />
+                      LANCER L'ANALYSE FUTURISTE
                     </span>
                   )}
                 </Button>
 
+                {/* Analysis Progress */}
                 {state.isAnalyzing && (
-                  <div className="mt-8 glass-effect rounded-2xl p-6 border border-white/30">
+                  <div className="mt-8 glass-effect rounded-2xl p-6 border border-white/20">
                     <div className="space-y-4">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-4 h-4 bg-gradient-to-r from-cv360-pink to-cv360-purple rounded-full animate-pulse"></div>
-                        <span className="text-cv360-gray font-medium">
-                          🔍 Extraction magique du contenu...
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-4">
+                      {[
+                        {
+                          icon: Brain,
+                          text: "🧠 Décodage neural en cours...",
+                          delay: "0ms",
+                        },
+                        {
+                          icon: Target,
+                          text: "🎯 Analyse des compétences...",
+                          delay: "1000ms",
+                        },
+                        {
+                          icon: Sparkles,
+                          text: "✨ Calcul du score magique...",
+                          delay: "2000ms",
+                        },
+                      ].map((step, index) => (
                         <div
-                          className="w-4 h-4 bg-gradient-to-r from-cv360-purple to-cv360-violet rounded-full animate-pulse"
-                          style={{ animationDelay: "500ms" }}
-                        ></div>
-                        <span className="text-cv360-gray font-medium">
-                          🧠 Analyse des super-compétences...
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-4">
-                        <div
-                          className="w-4 h-4 bg-gradient-to-r from-cv360-violet to-cv360-magenta rounded-full animate-pulse"
-                          style={{ animationDelay: "1000ms" }}
-                        ></div>
-                        <span className="text-cv360-gray font-medium">
-                          ⚡ Calcul du score ultime...
-                        </span>
-                      </div>
+                          key={index}
+                          className="flex items-center space-x-4"
+                          style={{ animationDelay: step.delay }}
+                        >
+                          <div className="w-4 h-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full animate-pulse"></div>
+                          <span className="text-white/90 font-medium text-lg">
+                            {step.text}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -265,6 +455,27 @@ export default function FileUpload() {
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .rotate-x-6 {
+          transform: rotateX(6deg);
+        }
+        .rotate-y-6 {
+          transform: rotateY(6deg);
+        }
+        .rotate-x-12 {
+          transform: rotateX(12deg);
+        }
+        .rotate-y-12 {
+          transform: rotateY(12deg);
+        }
+      `}</style>
     </section>
   );
 }
