@@ -201,24 +201,16 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div className="py-12 border-t border-white/10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left max-w-2xl mx-auto">
             <div className="flex items-center justify-center md:justify-start space-x-3 glass-effect rounded-xl p-4 border border-white/20">
               <Mail className="h-5 w-5 text-pink-400" />
               <span className="text-white/80 font-medium">
-                contact@cv360.quantum
+                yboukraiem@gmail.com
               </span>
             </div>
             <div className="flex items-center justify-center md:justify-start space-x-3 glass-effect rounded-xl p-4 border border-white/20">
               <Phone className="h-5 w-5 text-violet-400" />
-              <span className="text-white/80 font-medium">
-                +33 1 23 45 67 89
-              </span>
-            </div>
-            <div className="flex items-center justify-center md:justify-start space-x-3 glass-effect rounded-xl p-4 border border-white/20">
-              <MapPin className="h-5 w-5 text-cyan-400" />
-              <span className="text-white/80 font-medium">
-                Station Alpha, Secteur Tech
-              </span>
+              <span className="text-white/80 font-medium">55876375</span>
             </div>
           </div>
         </div>
