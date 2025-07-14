@@ -102,7 +102,7 @@ export default function FileUpload() {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          {!file ? (
+          {!state.uploadedFile ? (
             <div
               className={`relative glass-effect border-2 border-dashed rounded-3xl p-16 transition-all duration-500 transform hover:scale-105 ${
                 dragOver
