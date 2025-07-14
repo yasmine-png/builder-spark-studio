@@ -26,7 +26,7 @@ export default function FileUpload() {
     if (files.length > 0) {
       const selectedFile = files[0];
       if (isValidFileType(selectedFile)) {
-        setFile(selectedFile);
+        uploadFile(selectedFile);
       }
     }
   };
@@ -36,7 +36,7 @@ export default function FileUpload() {
     if (files && files.length > 0) {
       const selectedFile = files[0];
       if (isValidFileType(selectedFile)) {
-        setFile(selectedFile);
+        uploadFile(selectedFile);
       }
     }
   };
