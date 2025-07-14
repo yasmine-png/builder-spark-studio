@@ -229,11 +229,7 @@ export default function Footer() {
             <div className="flex items-center space-x-6 text-sm text-white/60">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Français (Terre)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Brain className="h-4 w-4 text-violet-400 animate-pulse" />
-                <span>Powered by Quantum IA</span>
+                <span>Français</span>
               </div>
             </div>
           </div>
