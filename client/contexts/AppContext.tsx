@@ -114,7 +114,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   return (
     <AppContext.Provider
-      value={{ state, uploadFile, analyzeCV, selectJob, resetApp }}
+      value={{ state, uploadFile, removeFile, analyzeCV, selectJob, resetApp }}
     >
       {children}
     </AppContext.Provider>
