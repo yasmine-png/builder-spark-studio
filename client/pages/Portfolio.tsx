@@ -56,14 +56,14 @@ const Portfolio = () => {
   };
 
   const skills = [
-    { name: 'React.js', level: 95, category: 'Frontend', color: 'from-blue-500 to-cyan-500' },
-    { name: 'TypeScript', level: 90, category: 'Language', color: 'from-blue-600 to-blue-400' },
-    { name: 'Next.js', level: 88, category: 'Framework', color: 'from-gray-900 to-gray-600' },
-    { name: 'Node.js', level: 85, category: 'Backend', color: 'from-green-600 to-green-400' },
-    { name: 'UI/UX Design', level: 82, category: 'Design', color: 'from-purple-600 to-pink-500' },
-    { name: 'MongoDB', level: 80, category: 'Database', color: 'from-green-500 to-emerald-500' },
-    { name: 'AWS', level: 75, category: 'Cloud', color: 'from-orange-500 to-yellow-500' },
-    { name: 'Docker', level: 78, category: 'DevOps', color: 'from-blue-500 to-blue-700' }
+    { name: 'React.js', level: 95, category: 'Frontend', color: 'from-blue-600 to-blue-400' },
+    { name: 'TypeScript', level: 90, category: 'Language', color: 'from-slate-600 to-slate-400' },
+    { name: 'Next.js', level: 88, category: 'Framework', color: 'from-gray-800 to-gray-600' },
+    { name: 'Node.js', level: 85, category: 'Backend', color: 'from-emerald-600 to-emerald-400' },
+    { name: 'UI/UX Design', level: 82, category: 'Design', color: 'from-indigo-600 to-blue-500' },
+    { name: 'MongoDB', level: 80, category: 'Database', color: 'from-green-600 to-green-400' },
+    { name: 'AWS', level: 75, category: 'Cloud', color: 'from-amber-600 to-orange-500' },
+    { name: 'Docker', level: 78, category: 'DevOps', color: 'from-blue-700 to-blue-500' }
   ];
 
   const experiences = [
@@ -195,8 +195,8 @@ const Portfolio = () => {
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <motion.div 
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+            <motion.div
+              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-slate-600 bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
             >
               YB
@@ -265,7 +265,7 @@ const Portfolio = () => {
                 variants={fadeInUp}
               >
                 Hi, I'm{' '}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-600 to-slate-600 bg-clip-text text-transparent">
                   Yasmine
                 </span>
               </motion.h1>
