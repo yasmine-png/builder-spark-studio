@@ -904,7 +904,7 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto justify-center">
             {[
               {
                 title: "The Full Stack JavaScript Bootcamp Graduate",
@@ -913,34 +913,10 @@ const Portfolio = () => {
                 logo: "🚀"
               },
               {
-                title: "Back End Development and APIs",
-                issuer: "freeCodeCamp",
-                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
-                logo: "🔥"
-              },
-              {
-                title: "Postman API Fundamentals Student Expert",
-                issuer: "Postman",
-                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop",
-                logo: "📡"
-              },
-              {
                 title: "React Professional Certificate",
                 issuer: "Meta",
                 image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop",
                 logo: "⚛️"
-              },
-              {
-                title: "AWS Certified Developer",
-                issuer: "Amazon Web Services",
-                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
-                logo: "☁️"
-              },
-              {
-                title: "UI/UX Design Professional",
-                issuer: "Google",
-                image: "https://images.unsplash.com/photo-1609921141835-710b7fa6e438?w=400&h=250&fit=crop",
-                logo: "🎨"
               }
             ].map((cert, index) => (
               <motion.div
@@ -990,19 +966,7 @@ const Portfolio = () => {
             ))}
           </div>
 
-          {/* Show More Button */}
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <Button variant="outline" className="group">
-              Show More
-              <ChevronRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
+
         </motion.div>
       </section>
 
