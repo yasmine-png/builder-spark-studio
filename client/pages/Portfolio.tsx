@@ -394,7 +394,7 @@ const Portfolio = () => {
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 />
-                <Avatar className="w-80 h-80 border-4 border-blue-600/20 relative z-10 shadow-2xl">
+                <Avatar className="w-80 h-80 border-4 border-blue-600/20 relative z-10 shadow-2xl ring-4 ring-background/50">
                   <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" alt="Yasmine" />
                   <AvatarFallback className="text-6xl bg-gradient-to-br from-blue-600 to-slate-600 text-white">YB</AvatarFallback>
                 </Avatar>
@@ -713,7 +713,7 @@ const Portfolio = () => {
               ].map((section, sectionIndex) => (
                 <motion.div
                   key={section.category}
-                  className="p-6 rounded-lg bg-background/60 backdrop-blur-sm border border-border/50 hover:shadow-lg transition-all duration-300"
+                  className="p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 hover:shadow-xl hover:border-border/60 transition-all duration-300 hover:-translate-y-1"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: sectionIndex * 0.1 }}
@@ -784,14 +784,14 @@ const Portfolio = () => {
                 whileHover={{ y: -10 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500">
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-border/30 bg-card/80 backdrop-blur-sm">
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="flex space-x-3">
                         <Button size="sm" className="shadow-lg">
@@ -924,7 +924,7 @@ const Portfolio = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-border/30 bg-card/80 backdrop-blur-sm hover:-translate-y-1">
                   {/* Certificate Image */}
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -932,7 +932,7 @@ const Portfolio = () => {
                       alt={cert.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   </div>
 
                   <CardContent className="p-6">
