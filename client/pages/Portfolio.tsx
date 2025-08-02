@@ -852,40 +852,9 @@ const Portfolio = () => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-20 bg-muted/30 relative overflow-hidden">
-        {/* Floating background elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-xl"
-            animate={{
-              y: [0, 25, 0],
-              x: [0, -15, 0],
-              scale: [1.1, 1, 1.1]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute top-1/2 left-1/2 w-24 h-24 bg-cyan-500/10 rounded-full blur-lg"
-            animate={{
-              y: [0, -20, 0],
-              x: [0, 15, 0],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-
+      <section id="certifications" className="py-20 bg-muted/30">
         <motion.div
-          className="container mx-auto px-6 relative z-10"
+          className="container mx-auto px-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -898,211 +867,111 @@ const Portfolio = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Certifications & Achievements</h2>
-            <motion.div
-              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"
-              initial={{ width: 0 }}
-              whileInView={{ width: 80 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              viewport={{ once: true }}
-            />
-            <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-              Professional certifications and achievements that validate my expertise and commitment to continuous learning.
+            <h2 className="text-4xl font-bold mb-4">Certifications</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Professional certifications and achievements
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "AWS Certified Developer",
-                issuer: "Amazon Web Services",
-                date: "2024",
-                icon: "☁️",
-                color: "from-orange-500 to-yellow-500",
-                description: "Associate level certification for developing and maintaining applications on AWS platform"
+                title: "The Full Stack JavaScript Bootcamp Graduate",
+                issuer: "GOMYCODE",
+                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop",
+                logo: "🚀"
+              },
+              {
+                title: "Back End Development and APIs",
+                issuer: "freeCodeCamp",
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
+                logo: "🔥"
+              },
+              {
+                title: "Postman API Fundamentals Student Expert",
+                issuer: "Postman",
+                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop",
+                logo: "📡"
               },
               {
                 title: "React Professional Certificate",
                 issuer: "Meta",
-                date: "2023",
-                icon: "⚛️",
-                color: "from-blue-500 to-cyan-500",
-                description: "Advanced React development including hooks, context, and performance optimization"
+                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop",
+                logo: "⚛️"
               },
               {
-                title: "Full Stack Web Development",
-                issuer: "freeCodeCamp",
-                date: "2023",
-                icon: "🎯",
-                color: "from-green-500 to-emerald-500",
-                description: "Comprehensive certification covering frontend, backend, and database technologies"
-              },
-              {
-                title: "Machine Learning Fundamentals",
-                issuer: "Stanford University",
-                date: "2024",
-                icon: "🧠",
-                color: "from-purple-500 to-pink-500",
-                description: "Introduction to machine learning algorithms and practical implementation"
-              },
-              {
-                title: "JavaScript Algorithms",
-                issuer: "HackerRank",
-                date: "2023",
-                icon: "⚡",
-                color: "from-yellow-500 to-orange-500",
-                description: "Problem solving and algorithmic thinking using JavaScript"
+                title: "AWS Certified Developer",
+                issuer: "Amazon Web Services",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+                logo: "☁️"
               },
               {
                 title: "UI/UX Design Professional",
                 issuer: "Google",
-                date: "2024",
-                icon: "🎨",
-                color: "from-indigo-500 to-purple-500",
-                description: "User experience design principles and prototyping techniques"
+                image: "https://images.unsplash.com/photo-1609921141835-710b7fa6e438?w=400&h=250&fit=crop",
+                logo: "🎨"
               }
             ].map((cert, index) => (
               <motion.div
                 key={cert.title}
-                className="group relative"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
               >
-                {/* Floating animation for the card */}
-                <motion.div
-                  animate={{
-                    y: [0, -8, 0],
-                    rotate: [0, 1, 0, -1, 0]
-                  }}
-                  transition={{
-                    duration: 4 + index * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.3
-                  }}
-                >
-                  <Card className="relative p-6 bg-background/80 backdrop-blur-sm border border-border/50 hover:border-border transition-all duration-500 hover:shadow-2xl overflow-hidden">
-                    {/* Animated gradient background */}
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
-                      animate={{
-                        scale: [1, 1.05, 1],
-                        rotate: [0, 2, 0]
-                      }}
-                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300">
+                  {/* Certificate Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
 
-                    {/* Floating certificate icon */}
-                    <motion.div
-                      className={`absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-r ${cert.color} rounded-full flex items-center justify-center text-white shadow-lg`}
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{
-                        rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                        scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                      }}
-                    >
-                      <span className="text-xl">{cert.icon}</span>
-                    </motion.div>
-
-                    {/* Certificate content */}
-                    <div className="relative z-10">
-                      <motion.h3
-                        className="text-lg font-bold mb-2 group-hover:text-blue-600 transition-colors duration-300"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {cert.title}
-                      </motion.h3>
-
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium text-blue-600">{cert.issuer}</span>
-                        <span className="text-xs bg-muted px-2 py-1 rounded-full">{cert.date}</span>
+                  <CardContent className="p-6">
+                    {/* Organization Info */}
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-lg">
+                        {cert.logo}
                       </div>
-
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {cert.description}
-                      </p>
-
-                      {/* Verification badge */}
-                      <motion.div
-                        className="flex items-center mt-4 text-xs text-green-600"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: index * 0.1 + 0.5 }}
-                        viewport={{ once: true }}
-                      >
-                        <motion.div
-                          className="w-2 h-2 bg-green-500 rounded-full mr-2"
-                          animate={{ scale: [1, 1.3, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                        Verified Certificate
-                      </motion.div>
+                      <div>
+                        <h4 className="font-semibold text-sm">{cert.issuer}</h4>
+                        <p className="text-xs text-muted-foreground">{cert.title}</p>
+                      </div>
                     </div>
 
-                    {/* Floating particles around the card */}
-                    <motion.div
-                      className={`absolute -top-1 -left-1 w-3 h-3 bg-gradient-to-r ${cert.color} rounded-full opacity-60`}
-                      animate={{
-                        y: [0, -15, 0],
-                        x: [0, 8, 0],
-                        scale: [1, 0.8, 1]
-                      }}
-                      transition={{ duration: 4, repeat: Infinity, delay: index * 0.2 }}
-                    />
-                    <motion.div
-                      className={`absolute -bottom-1 -right-1 w-2 h-2 bg-gradient-to-r ${cert.color} rounded-full opacity-40`}
-                      animate={{
-                        y: [0, 10, 0],
-                        x: [0, -5, 0],
-                        scale: [1, 1.2, 1]
-                      }}
-                      transition={{ duration: 5, repeat: Infinity, delay: index * 0.3 }}
-                    />
-                  </Card>
-                </motion.div>
+                    {/* View Certificate Button */}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full group/btn"
+                      onClick={() => window.open('#', '_blank')}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:animate-bounce" />
+                      View Certificate
+                    </Button>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
 
-          {/* Floating achievement icons */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[
-              { icon: '🏆', left: '15%', top: '20%', delay: 0 },
-              { icon: '🎓', right: '15%', top: '30%', delay: 1 },
-              { icon: '⭐', left: '20%', bottom: '25%', delay: 2 },
-              { icon: '🚀', right: '20%', bottom: '35%', delay: 3 }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                className="absolute text-3xl opacity-20"
-                style={{
-                  left: item.left,
-                  right: item.right,
-                  top: item.top,
-                  bottom: item.bottom,
-                }}
-                animate={{
-                  y: [0, -25, 0],
-                  rotate: [0, 10, 0, -10, 0],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{
-                  duration: 6 + i,
-                  repeat: Infinity,
-                  delay: item.delay,
-                  ease: "easeInOut"
-                }}
-              >
-                {item.icon}
-              </motion.div>
-            ))}
-          </div>
+          {/* Show More Button */}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Button variant="outline" className="group">
+              Show More
+              <ChevronRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
         </motion.div>
       </section>
 
