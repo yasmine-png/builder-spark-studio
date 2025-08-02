@@ -789,38 +789,58 @@ const Portfolio = () => {
                         </motion.div>
 
                         {/* Tech Name */}
-                        <h4 className="text-sm font-semibold mb-2 group-hover/tech:text-blue-600 transition-colors">
+                        <h4 className="text-sm font-semibold mb-3 group-hover/tech:text-blue-600 transition-colors">
                           {tech.name}
                         </h4>
 
-                        {/* Skill Level Bar */}
-                        <div className="relative">
-                          <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-                            <motion.div
-                              className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${tech.level}%` }}
-                              transition={{ duration: 1.5, delay: categoryIndex * 0.15 + techIndex * 0.2 }}
-                              viewport={{ once: true }}
-                            >
-                              {/* Shimmer effect */}
-                              <motion.div
-                                className="absolute inset-0 bg-white/30 rounded-full"
-                                animate={{ x: [-100, 200] }}
-                                transition={{ duration: 2, repeat: Infinity, delay: techIndex * 0.3 }}
-                              />
-                            </motion.div>
+                        {/* Experience Badge */}
+                        <motion.div
+                          className="relative"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: categoryIndex * 0.15 + techIndex * 0.1 + 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          <div className={`
+                            inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition-all duration-300
+                            ${tech.experience === 'Expert' ? 'bg-green-100 text-green-800 border border-green-200' : ''}
+                            ${tech.experience === 'Advanced' ? 'bg-blue-100 text-blue-800 border border-blue-200' : ''}
+                            ${tech.experience === 'Intermediate' ? 'bg-yellow-100 text-yellow-800 border border-yellow-200' : ''}
+                            ${tech.experience === 'Beginner' ? 'bg-gray-100 text-gray-800 border border-gray-200' : ''}
+                            group-hover/tech:scale-110 group-hover/tech:shadow-md
+                          `}>
+                            {/* Experience indicator dots */}
+                            <div className="flex space-x-1 mr-2">
+                              {[...Array(4)].map((_, i) => (
+                                <motion.div
+                                  key={i}
+                                  className={`w-1.5 h-1.5 rounded-full ${
+                                    (tech.experience === 'Expert' && i < 4) ||
+                                    (tech.experience === 'Advanced' && i < 3) ||
+                                    (tech.experience === 'Intermediate' && i < 2) ||
+                                    (tech.experience === 'Beginner' && i < 1)
+                                      ? 'bg-current'
+                                      : 'bg-current opacity-30'
+                                  }`}
+                                  initial={{ scale: 0 }}
+                                  whileInView={{ scale: 1 }}
+                                  transition={{ delay: categoryIndex * 0.15 + techIndex * 0.1 + i * 0.1 + 0.5 }}
+                                  viewport={{ once: true }}
+                                />
+                              ))}
+                            </div>
+                            {tech.experience}
                           </div>
-                          <motion.span
-                            className="text-xs text-muted-foreground mt-1 inline-block"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ delay: categoryIndex * 0.15 + techIndex * 0.2 + 1 }}
-                            viewport={{ once: true }}
-                          >
-                            {tech.level}%
-                          </motion.span>
-                        </div>
+
+                          {/* Animated pulse for expert level */}
+                          {tech.experience === 'Expert' && (
+                            <motion.div
+                              className="absolute inset-0 bg-green-200 rounded-full opacity-30"
+                              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.1, 0.3] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            />
+                          )}
+                        </motion.div>
                       </motion.div>
                     ))}
                   </div>
