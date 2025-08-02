@@ -629,7 +629,7 @@ const Portfolio = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
+            <h2 className="text-4xl font-bold mb-4">Technologies</h2>
             <motion.div 
               className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
               initial={{ width: 0 }}
@@ -639,46 +639,67 @@ const Portfolio = () => {
             />
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="p-6 rounded-xl bg-background/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h3 className="font-semibold text-lg">{skill.name}</h3>
-                    <p className="text-sm text-muted-foreground">{skill.category}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-2xl font-bold text-primary">{skill.level}%</span>
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                    <motion.div 
-                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-white/20 rounded-full"
-                        animate={{ x: [-100, 300] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                      />
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            {/* Frontend Development */}
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-center text-blue-600">Frontend Development</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {frontendSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="group flex flex-col items-center p-6 rounded-xl bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                      {skill.icon}
+                    </div>
+                    <h4 className="text-sm font-medium text-center group-hover:text-blue-600 transition-colors">
+                      {skill.name}
+                    </h4>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Backend Development */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-semibold mb-8 text-center text-slate-600">Backend Development</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {backendSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="group flex flex-col items-center p-6 rounded-xl bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                      {skill.icon}
+                    </div>
+                    <h4 className="text-sm font-medium text-center group-hover:text-slate-600 transition-colors">
+                      {skill.name}
+                    </h4>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </section>
