@@ -263,6 +263,7 @@ const Portfolio = () => {
                 { id: 'experience', label: 'Experience' },
                 { id: 'skills', label: 'Skills' },
                 { id: 'projects', label: 'Projects' },
+                { id: 'certifications', label: 'Certifications' },
                 { id: 'contact', label: 'Contact' }
               ].map((item) => (
                 <motion.button
