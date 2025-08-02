@@ -94,10 +94,10 @@ const Portfolio = () => {
       icon: "🛠️",
       color: "from-purple-500 to-pink-600",
       technologies: [
-        { name: 'Git', icon: '🐙', level: 90 },
-        { name: 'Docker', icon: '🐳', level: 75 },
-        { name: 'Figma', icon: '🎨', level: 85 },
-        { name: 'VS Code', icon: '💻', level: 95 }
+        { name: 'Git', icon: '🐙', experience: 'Expert' },
+        { name: 'Docker', icon: '🐳', experience: 'Intermediate' },
+        { name: 'Figma', icon: '🎨', experience: 'Advanced' },
+        { name: 'VS Code', icon: '💻', experience: 'Expert' }
       ]
     },
     {
@@ -105,10 +105,10 @@ const Portfolio = () => {
       icon: "👁️",
       color: "from-cyan-500 to-blue-600",
       technologies: [
-        { name: 'OpenCV', icon: '📷', level: 82 },
-        { name: 'TensorFlow', icon: '🧠', level: 78 },
-        { name: 'PyTorch', icon: '🔥', level: 75 },
-        { name: 'YOLO', icon: '⚡', level: 70 }
+        { name: 'OpenCV', icon: '📷', experience: 'Advanced' },
+        { name: 'TensorFlow', icon: '🧠', experience: 'Intermediate' },
+        { name: 'PyTorch', icon: '🔥', experience: 'Intermediate' },
+        { name: 'YOLO', icon: '⚡', experience: 'Beginner' }
       ]
     },
     {
