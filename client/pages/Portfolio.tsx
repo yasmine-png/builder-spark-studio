@@ -327,29 +327,29 @@ const Portfolio = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-2xl"
-                  animate={{ 
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-slate-600/30 rounded-full blur-2xl"
+                  animate={{
                     scale: [1, 1.1, 1],
                     opacity: [0.3, 0.5, 0.3]
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 />
-                <Avatar className="w-80 h-80 border-4 border-primary/20 relative z-10 shadow-2xl">
+                <Avatar className="w-80 h-80 border-4 border-blue-600/20 relative z-10 shadow-2xl">
                   <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" alt="Yasmine" />
-                  <AvatarFallback className="text-6xl bg-gradient-to-br from-primary to-accent text-white">YB</AvatarFallback>
+                  <AvatarFallback className="text-6xl bg-gradient-to-br from-blue-600 to-slate-600 text-white">YB</AvatarFallback>
                 </Avatar>
-                
+
                 {/* Floating elements */}
                 <motion.div
-                  className="absolute -top-4 -right-4 bg-primary text-white p-3 rounded-full shadow-lg"
+                  className="absolute -top-4 -right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg"
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
                   <Code className="h-6 w-6" />
                 </motion.div>
                 <motion.div
-                  className="absolute -bottom-4 -left-4 bg-accent text-white p-3 rounded-full shadow-lg"
+                  className="absolute -bottom-4 -left-4 bg-slate-600 text-white p-3 rounded-full shadow-lg"
                   animate={{ y: [5, -5, 5] }}
                   transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                 >
