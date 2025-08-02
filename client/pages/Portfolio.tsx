@@ -849,26 +849,35 @@ const Portfolio = () => {
 
           {/* Floating Tech Icons */}
           <div className="absolute inset-0 pointer-events-none">
-            {[...Array(8)].map((_, i) => (
+            {[
+              { icon: '⚛️', left: '10%', top: '20%' },
+              { icon: '🚀', left: '85%', top: '15%' },
+              { icon: '🔥', left: '75%', top: '60%' },
+              { icon: '💻', left: '15%', top: '70%' },
+              { icon: '🌐', left: '90%', top: '80%' },
+              { icon: '📊', left: '20%', top: '40%' },
+              { icon: '🎨', left: '80%', top: '35%' },
+              { icon: '⚡', left: '5%', top: '90%' }
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 className="absolute text-2xl opacity-20"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  left: item.left,
+                  top: item.top,
                 }}
                 animate={{
                   y: [0, -20, 0],
-                  x: [0, 10, 0],
-                  rotate: [0, 180, 360],
+                  rotate: [0, 360],
                 }}
                 transition={{
-                  duration: 10 + i * 2,
+                  duration: 8 + i,
                   repeat: Infinity,
-                  delay: i * 1.5,
+                  delay: i * 0.5,
+                  ease: "easeInOut"
                 }}
               >
-                {['⚛️', '🚀', '🔥', '💻', '🌐', '📊', '🎨', '⚡'][i]}
+                {item.icon}
               </motion.div>
             ))}
           </div>
