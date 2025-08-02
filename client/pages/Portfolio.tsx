@@ -172,40 +172,36 @@ const Portfolio = () => {
       description: 'A comprehensive admin dashboard for e-commerce management with real-time analytics and inventory tracking.',
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
-      link: '#',
-      github: '#',
-      featured: true,
-      stats: { views: '2.5k', likes: '324', comments: '89' }
+      demoLink: 'https://demo.example.com',
+      codeLink: 'https://github.com/yasmine/ecommerce-dashboard',
+      featured: true
     },
     {
       title: 'AI-Powered Task Manager',
       description: 'Smart task management application with AI suggestions and automated scheduling capabilities.',
       tech: ['Next.js', 'OpenAI API', 'Prisma', 'PostgreSQL'],
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
-      link: '#',
-      github: '#',
-      featured: true,
-      stats: { views: '1.8k', likes: '256', comments: '45' }
+      demoLink: 'https://task-manager-demo.example.com',
+      codeLink: 'https://github.com/yasmine/ai-task-manager',
+      featured: true
     },
     {
       title: 'Real-time Collaboration Tool',
       description: 'Web application for team collaboration with live editing, video calls, and project management features.',
       tech: ['React', 'Socket.io', 'WebRTC', 'Redis'],
       image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=300&fit=crop',
-      link: '#',
-      github: '#',
-      featured: false,
-      stats: { views: '3.2k', likes: '412', comments: '156' }
+      demoLink: 'https://collab-tool-demo.example.com',
+      codeLink: 'https://github.com/yasmine/collaboration-tool',
+      featured: false
     },
     {
       title: 'Fitness Tracking Mobile App',
       description: 'Cross-platform mobile app for fitness tracking with social features and workout recommendations.',
       tech: ['React Native', 'Firebase', 'Redux', 'Expo'],
       image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop',
-      link: '#',
-      github: '#',
-      featured: false,
-      stats: { views: '1.9k', likes: '298', comments: '73' }
+      demoLink: 'https://fitness-app-demo.example.com',
+      codeLink: 'https://github.com/yasmine/fitness-tracker',
+      featured: false
     }
   ];
 
@@ -819,29 +815,32 @@ const Portfolio = () => {
                       {project.description}
                     </p>
                     
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex space-x-4 text-sm text-muted-foreground">
-                        <div className="flex items-center space-x-1">
-                          <Eye className="h-4 w-4" />
-                          <span>{project.stats.views}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Heart className="h-4 w-4" />
-                          <span>{project.stats.likes}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <MessageCircle className="h-4 w-4" />
-                          <span>{project.stats.comments}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech) => (
                         <Badge key={tech} variant="secondary" className="text-xs">
                           {tech}
                         </Badge>
                       ))}
+                    </div>
+
+                    <div className="flex space-x-3 pt-2">
+                      <Button
+                        size="sm"
+                        className="flex-1 group"
+                        onClick={() => window.open(project.demoLink, '_blank')}
+                      >
+                        <ExternalLink className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                        Demo
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 group"
+                        onClick={() => window.open(project.codeLink, '_blank')}
+                      >
+                        <Github className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                        Code
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
