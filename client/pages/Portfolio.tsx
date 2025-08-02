@@ -240,9 +240,9 @@ const Portfolio = () => {
       </div>
 
       {/* Navigation */}
-      <motion.nav 
+      <motion.nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg border-b border-border/50' : 'bg-transparent'
+          isScrolled ? 'bg-background/70 backdrop-blur-xl shadow-2xl border-b border-border/20' : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -1016,7 +1016,7 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <Card className="p-8 backdrop-blur-sm bg-background/50">
+              <Card className="p-8 backdrop-blur-sm bg-card/60 border-border/30 shadow-xl">
                 <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
@@ -1057,7 +1057,7 @@ const Portfolio = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Card className="p-8 backdrop-blur-sm bg-background/50">
+              <Card className="p-8 backdrop-blur-sm bg-card/60 border-border/30 shadow-xl">
                 <form className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -1097,7 +1097,7 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t bg-background/50 backdrop-blur-sm">
+      <footer className="py-12 border-t border-border/30 bg-card/30 backdrop-blur-xl">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-4 md:mb-0">
