@@ -73,7 +73,7 @@ const Portfolio = () => {
       color: "from-green-500 to-emerald-600",
       technologies: [
         { name: 'Node.js', icon: '🟢', level: 85 },
-        { name: 'Express', icon: '🚀', level: 82 },
+        { name: 'Express', icon: '��', level: 82 },
         { name: 'Python', icon: '🐍', level: 80 },
         { name: 'GraphQL', icon: '📊', level: 75 }
       ]
@@ -727,67 +727,153 @@ const Portfolio = () => {
             </motion.p>
           </motion.div>
           
-          <div className="max-w-6xl mx-auto">
-            {/* Frontend Development */}
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-semibold mb-8 text-center text-blue-600">Frontend Development</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {frontendSkills.map((skill, index) => (
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {techCategories.map((category, categoryIndex) => (
+              <motion.div
+                key={category.title}
+                className="group relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: categoryIndex * 0.15, duration: 0.6 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8 }}
+              >
+                {/* Category Card */}
+                <div className="relative p-8 rounded-2xl bg-background/70 backdrop-blur-xl border border-border/50 hover:border-border transition-all duration-500 hover:shadow-2xl overflow-hidden">
+                  {/* Animated gradient background */}
                   <motion.div
-                    key={skill.name}
-                    className="group flex flex-col items-center p-6 rounded-xl bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {skill.icon}
-                    </div>
-                    <h4 className="text-sm font-medium text-center group-hover:text-blue-600 transition-colors">
-                      {skill.name}
-                    </h4>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+                    className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
+                    animate={{
+                      background: [
+                        `linear-gradient(45deg, ${category.color.split(' ')[1]}, ${category.color.split(' ')[3]})`,
+                        `linear-gradient(225deg, ${category.color.split(' ')[3]}, ${category.color.split(' ')[1]})`,
+                        `linear-gradient(45deg, ${category.color.split(' ')[1]}, ${category.color.split(' ')[3]})`
+                      ]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity }}
+                  />
 
-            {/* Backend Development */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-semibold mb-8 text-center text-slate-600">Backend Development</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {backendSkills.map((skill, index) => (
+                  {/* Category Header */}
                   <motion.div
-                    key={skill.name}
-                    className="group flex flex-col items-center p-6 rounded-xl bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.5 }}
-                    viewport={{ once: true }}
+                    className="flex items-center space-x-3 mb-6"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {skill.icon}
-                    </div>
-                    <h4 className="text-sm font-medium text-center group-hover:text-slate-600 transition-colors">
-                      {skill.name}
-                    </h4>
+                    <motion.div
+                      className={`text-3xl p-3 rounded-xl bg-gradient-to-r ${category.color} text-white shadow-lg`}
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {category.icon}
+                    </motion.div>
+                    <h3 className="text-xl font-bold text-foreground">
+                      {category.title}
+                    </h3>
                   </motion.div>
-                ))}
-              </div>
-            </motion.div>
+
+                  {/* Technologies Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {category.technologies.map((tech, techIndex) => (
+                      <motion.div
+                        key={tech.name}
+                        className="group/tech relative p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-all duration-300 border border-border/30 hover:border-border/60"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: categoryIndex * 0.15 + techIndex * 0.1 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.05, rotateY: 5 }}
+                      >
+                        {/* Tech Icon */}
+                        <motion.div
+                          className="text-2xl mb-2 group-hover/tech:scale-110 transition-transform duration-300"
+                          whileHover={{ rotate: [0, -10, 10, 0] }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          {tech.icon}
+                        </motion.div>
+
+                        {/* Tech Name */}
+                        <h4 className="text-sm font-semibold mb-2 group-hover/tech:text-blue-600 transition-colors">
+                          {tech.name}
+                        </h4>
+
+                        {/* Skill Level Bar */}
+                        <div className="relative">
+                          <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                            <motion.div
+                              className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${tech.level}%` }}
+                              transition={{ duration: 1.5, delay: categoryIndex * 0.15 + techIndex * 0.2 }}
+                              viewport={{ once: true }}
+                            >
+                              {/* Shimmer effect */}
+                              <motion.div
+                                className="absolute inset-0 bg-white/30 rounded-full"
+                                animate={{ x: [-100, 200] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: techIndex * 0.3 }}
+                              />
+                            </motion.div>
+                          </div>
+                          <motion.span
+                            className="text-xs text-muted-foreground mt-1 inline-block"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: categoryIndex * 0.15 + techIndex * 0.2 + 1 }}
+                            viewport={{ once: true }}
+                          >
+                            {tech.level}%
+                          </motion.span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Floating particles */}
+                <motion.div
+                  className={`absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-r ${category.color} rounded-full opacity-60`}
+                  animate={{
+                    y: [0, -10, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, delay: categoryIndex * 0.5 }}
+                />
+                <motion.div
+                  className={`absolute -bottom-2 -left-2 w-3 h-3 bg-gradient-to-r ${category.color} rounded-full opacity-40`}
+                  animate={{
+                    y: [0, 8, 0],
+                    scale: [1, 0.8, 1]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, delay: categoryIndex * 0.7 }}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Floating Tech Icons */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(8)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute text-2xl opacity-20"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  x: [0, 10, 0],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{
+                  duration: 10 + i * 2,
+                  repeat: Infinity,
+                  delay: i * 1.5,
+                }}
+              >
+                {['⚛️', '🚀', '🔥', '💻', '🌐', '📊', '🎨', '⚡'][i]}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </section>
