@@ -800,7 +800,7 @@ const Portfolio = () => {
                       </div>
                     </div>
                     {project.featured && (
-                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-primary to-accent text-white">
+                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-slate-600 text-white">
                         <Star className="h-3 w-3 mr-1" />
                         Featured
                       </Badge>
@@ -808,7 +808,7 @@ const Portfolio = () => {
                   </div>
                   
                   <CardContent className="p-6">
-                    <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="font-bold text-xl mb-3 group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
