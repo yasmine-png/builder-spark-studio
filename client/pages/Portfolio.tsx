@@ -756,8 +756,8 @@ const Portfolio = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-            <motion.div 
-              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"
+            <motion.div
+              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto mb-4"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
               transition={{ duration: 1, delay: 0.5 }}
