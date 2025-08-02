@@ -102,7 +102,7 @@ const Portfolio = () => {
     },
     {
       title: "Computer Vision",
-      icon: "👁️",
+      icon: "��️",
       color: "from-cyan-500 to-blue-600",
       technologies: [
         { name: 'OpenCV', icon: '📷', experience: 'Advanced' },
@@ -657,249 +657,88 @@ const Portfolio = () => {
       </section>
 
       {/* Technologies Section */}
-      <section id="skills" className="py-20 bg-muted/30 relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -50, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.div
-            className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-            animate={{
-              x: [0, -80, 0],
-              y: [0, 50, 0],
-              scale: [1.2, 1, 1.2]
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-
+      <section id="skills" className="py-20 bg-muted/30">
         <motion.div
-          className="container mx-auto px-6 relative z-10"
+          className="container mx-auto px-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <motion.div
-            className="text-center mb-20"
+            className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
+            <h2 className="text-4xl font-bold mb-4">Technologies I Use</h2>
             <motion.div
-              className="inline-flex items-center space-x-2 mb-6"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl">💻</div>
-              <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                Technologies I Use
-              </h2>
-              <div className="text-4xl">🚀</div>
-            </motion.div>
-
-            <motion.div
-              className="w-32 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 mx-auto rounded-full"
+              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"
               initial={{ width: 0 }}
-              whileInView={{ width: 128 }}
-              transition={{ duration: 1.5, delay: 0.5 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.5 }}
               viewport={{ once: true }}
             />
-
-            <motion.p
-              className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-              Cutting-edge tools and frameworks that power my development journey
-            </motion.p>
           </motion.div>
-          
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {techCategories.map((category, categoryIndex) => (
-              <motion.div
-                key={category.title}
-                className="group relative"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: categoryIndex * 0.15, duration: 0.6 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
-              >
-                {/* Category Card */}
-                <div className="relative p-8 rounded-2xl bg-background/70 backdrop-blur-xl border border-border/50 hover:border-border transition-all duration-500 hover:shadow-2xl overflow-hidden">
-                  {/* Animated gradient background */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
-                    animate={{
-                      rotate: [0, 180, 360],
-                      scale: [1, 1.05, 1]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  />
 
-                  {/* Category Header */}
-                  <motion.div
-                    className="flex items-center space-x-3 mb-6"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <motion.div
-                      className={`text-3xl p-3 rounded-xl bg-gradient-to-r ${category.color} text-white shadow-lg`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      {category.icon}
-                    </motion.div>
-                    <h3 className="text-xl font-bold text-foreground">
-                      {category.title}
-                    </h3>
-                  </motion.div>
-
-                  {/* Technologies Grid */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {category.technologies.map((tech, techIndex) => (
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  category: "Frontend Development",
+                  technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "Vue.js", "Angular", "SCSS"]
+                },
+                {
+                  category: "Backend Development",
+                  technologies: ["Node.js", "Express", "Python", "GraphQL", "REST APIs", "FastAPI", "Django", "PHP"]
+                },
+                {
+                  category: "Database & Cloud",
+                  technologies: ["MongoDB", "PostgreSQL", "AWS", "Firebase", "MySQL", "Redis", "Google Cloud", "Azure"]
+                },
+                {
+                  category: "Tools & Workflow",
+                  technologies: ["Git", "Docker", "Figma", "VS Code", "Webpack", "Vite", "Jenkins", "GitHub Actions"]
+                },
+                {
+                  category: "Computer Vision",
+                  technologies: ["OpenCV", "TensorFlow", "PyTorch", "YOLO", "Scikit-learn", "Numpy", "Matplotlib", "Pandas"]
+                },
+                {
+                  category: "Advanced Databases",
+                  technologies: ["Redis", "Elasticsearch", "Neo4j", "Apache Kafka", "InfluxDB", "Cassandra", "DynamoDB", "CouchDB"]
+                }
+              ].map((section, sectionIndex) => (
+                <motion.div
+                  key={section.category}
+                  className="p-6 rounded-lg bg-background/60 backdrop-blur-sm border border-border/50 hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: sectionIndex * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-lg font-semibold text-blue-600 mb-4">
+                    {section.category}
+                  </h3>
+                  <div className="space-y-2">
+                    {section.technologies.map((tech, techIndex) => (
                       <motion.div
-                        key={tech.name}
-                        className="group/tech relative p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-all duration-300 border border-border/30 hover:border-border/60"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: categoryIndex * 0.15 + techIndex * 0.1 }}
+                        key={tech}
+                        className="flex items-center space-x-2"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: sectionIndex * 0.1 + techIndex * 0.05 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.05, rotateY: 5 }}
                       >
-                        {/* Tech Icon */}
-                        <motion.div
-                          className="text-2xl mb-2 group-hover/tech:scale-110 transition-transform duration-300"
-                          whileHover={{ rotate: [0, -10, 10, 0] }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          {tech.icon}
-                        </motion.div>
-
-                        {/* Tech Name */}
-                        <h4 className="text-sm font-semibold mb-3 group-hover/tech:text-blue-600 transition-colors">
-                          {tech.name}
-                        </h4>
-
-                        {/* Experience Badge */}
-                        <motion.div
-                          className="relative"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: categoryIndex * 0.15 + techIndex * 0.1 + 0.3 }}
-                          viewport={{ once: true }}
-                        >
-                          <div className={`
-                            inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition-all duration-300
-                            ${tech.experience === 'Expert' ? 'bg-green-100 text-green-800 border border-green-200' : ''}
-                            ${tech.experience === 'Advanced' ? 'bg-blue-100 text-blue-800 border border-blue-200' : ''}
-                            ${tech.experience === 'Intermediate' ? 'bg-yellow-100 text-yellow-800 border border-yellow-200' : ''}
-                            ${tech.experience === 'Beginner' ? 'bg-gray-100 text-gray-800 border border-gray-200' : ''}
-                            group-hover/tech:scale-110 group-hover/tech:shadow-md
-                          `}>
-                            {/* Experience indicator dots */}
-                            <div className="flex space-x-1 mr-2">
-                              {[...Array(4)].map((_, i) => (
-                                <motion.div
-                                  key={i}
-                                  className={`w-1.5 h-1.5 rounded-full ${
-                                    (tech.experience === 'Expert' && i < 4) ||
-                                    (tech.experience === 'Advanced' && i < 3) ||
-                                    (tech.experience === 'Intermediate' && i < 2) ||
-                                    (tech.experience === 'Beginner' && i < 1)
-                                      ? 'bg-current'
-                                      : 'bg-current opacity-30'
-                                  }`}
-                                  initial={{ scale: 0 }}
-                                  whileInView={{ scale: 1 }}
-                                  transition={{ delay: categoryIndex * 0.15 + techIndex * 0.1 + i * 0.1 + 0.5 }}
-                                  viewport={{ once: true }}
-                                />
-                              ))}
-                            </div>
-                            {tech.experience}
-                          </div>
-
-                          {/* Animated pulse for expert level */}
-                          {tech.experience === 'Expert' && (
-                            <motion.div
-                              className="absolute inset-0 bg-green-200 rounded-full opacity-30"
-                              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.1, 0.3] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            />
-                          )}
-                        </motion.div>
+                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0" />
+                        <span className="text-sm text-foreground">{tech}</span>
                       </motion.div>
                     ))}
                   </div>
-                </div>
-
-                {/* Floating particles */}
-                <motion.div
-                  className={`absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-r ${category.color} rounded-full opacity-60`}
-                  animate={{
-                    y: [0, -10, 0],
-                    scale: [1, 1.2, 1]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, delay: categoryIndex * 0.5 }}
-                />
-                <motion.div
-                  className={`absolute -bottom-2 -left-2 w-3 h-3 bg-gradient-to-r ${category.color} rounded-full opacity-40`}
-                  animate={{
-                    y: [0, 8, 0],
-                    scale: [1, 0.8, 1]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, delay: categoryIndex * 0.7 }}
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Floating Tech Icons */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[
-              { icon: '⚛️', left: '10%', top: '20%' },
-              { icon: '🚀', left: '85%', top: '15%' },
-              { icon: '🔥', left: '75%', top: '60%' },
-              { icon: '💻', left: '15%', top: '70%' },
-              { icon: '🌐', left: '90%', top: '80%' },
-              { icon: '📊', left: '20%', top: '40%' },
-              { icon: '🎨', left: '80%', top: '35%' },
-              { icon: '⚡', left: '5%', top: '90%' }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                className="absolute text-2xl opacity-20"
-                style={{
-                  left: item.left,
-                  top: item.top,
-                }}
-                animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 8 + i,
-                  repeat: Infinity,
-                  delay: i * 0.5,
-                  ease: "easeInOut"
-                }}
-              >
-                {item.icon}
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </section>
