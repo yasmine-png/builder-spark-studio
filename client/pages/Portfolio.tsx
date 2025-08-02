@@ -744,13 +744,10 @@ const Portfolio = () => {
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
                     animate={{
-                      background: [
-                        `linear-gradient(45deg, ${category.color.split(' ')[1]}, ${category.color.split(' ')[3]})`,
-                        `linear-gradient(225deg, ${category.color.split(' ')[3]}, ${category.color.split(' ')[1]})`,
-                        `linear-gradient(45deg, ${category.color.split(' ')[1]}, ${category.color.split(' ')[3]})`
-                      ]
+                      rotate: [0, 180, 360],
+                      scale: [1, 1.05, 1]
                     }}
-                    transition={{ duration: 8, repeat: Infinity }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                   />
 
                   {/* Category Header */}
