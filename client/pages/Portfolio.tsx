@@ -55,30 +55,73 @@ const Portfolio = () => {
     }
   };
 
-  const frontendSkills = [
-    { name: 'HTML5', icon: '🌐' },
-    { name: 'CSS3', icon: '🎨' },
-    { name: 'JavaScript', icon: '⚡' },
-    { name: 'React.js', icon: '⚛️' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'TypeScript', icon: '🔷' },
-    { name: 'Tailwind CSS', icon: '💨' },
-    { name: 'SCSS', icon: '🎭' },
-    { name: 'Bootstrap', icon: '🅱️' },
-    { name: 'Redux', icon: '🔄' }
-  ];
-
-  const backendSkills = [
-    { name: 'Node.js', icon: '🟢' },
-    { name: 'Express.js', icon: '🚀' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'MySQL', icon: '🐬' },
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'PHP', icon: '🐘' },
-    { name: 'Python', icon: '🐍' },
-    { name: 'Git/GitHub', icon: '🐙' },
-    { name: 'Docker', icon: '🐳' },
-    { name: 'AWS', icon: '☁️' }
+  const techCategories = [
+    {
+      title: "Frontend Development",
+      icon: "💻",
+      color: "from-blue-500 to-purple-600",
+      technologies: [
+        { name: 'React', icon: '⚛️', level: 95 },
+        { name: 'Next.js', icon: '▲', level: 92 },
+        { name: 'TypeScript', icon: '🔷', level: 90 },
+        { name: 'Tailwind CSS', icon: '💨', level: 88 }
+      ]
+    },
+    {
+      title: "Backend Development",
+      icon: "⚙️",
+      color: "from-green-500 to-emerald-600",
+      technologies: [
+        { name: 'Node.js', icon: '🟢', level: 85 },
+        { name: 'Express', icon: '🚀', level: 82 },
+        { name: 'Python', icon: '🐍', level: 80 },
+        { name: 'GraphQL', icon: '📊', level: 75 }
+      ]
+    },
+    {
+      title: "Database & Cloud",
+      icon: "☁️",
+      color: "from-orange-500 to-red-500",
+      technologies: [
+        { name: 'MongoDB', icon: '🍃', level: 88 },
+        { name: 'PostgreSQL', icon: '🐘', level: 85 },
+        { name: 'AWS', icon: '🌐', level: 78 },
+        { name: 'Firebase', icon: '🔥', level: 80 }
+      ]
+    },
+    {
+      title: "Tools & Workflow",
+      icon: "🛠️",
+      color: "from-purple-500 to-pink-600",
+      technologies: [
+        { name: 'Git', icon: '🐙', level: 90 },
+        { name: 'Docker', icon: '🐳', level: 75 },
+        { name: 'Figma', icon: '🎨', level: 85 },
+        { name: 'VS Code', icon: '💻', level: 95 }
+      ]
+    },
+    {
+      title: "Computer Vision",
+      icon: "👁️",
+      color: "from-cyan-500 to-blue-600",
+      technologies: [
+        { name: 'OpenCV', icon: '📷', level: 82 },
+        { name: 'TensorFlow', icon: '🧠', level: 78 },
+        { name: 'PyTorch', icon: '🔥', level: 75 },
+        { name: 'YOLO', icon: '⚡', level: 70 }
+      ]
+    },
+    {
+      title: "Advanced Databases",
+      icon: "🗄️",
+      color: "from-indigo-500 to-purple-600",
+      technologies: [
+        { name: 'Redis', icon: '⚡', level: 80 },
+        { name: 'Elasticsearch', icon: '🔍', level: 72 },
+        { name: 'Neo4j', icon: '🕸️', level: 68 },
+        { name: 'Apache Kafka', icon: '📡', level: 65 }
+      ]
+    }
   ];
 
   const experiences = [
