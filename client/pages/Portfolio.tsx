@@ -287,10 +287,13 @@ const Portfolio = () => {
               ))}
             </div>
 
-            <Button className="hidden md:flex">
-              <Download className="mr-2 h-4 w-4" />
-              Resume
-            </Button>
+            <div className="flex items-center space-x-3">
+              <ThemeToggle />
+              <Button className="hidden md:flex shadow-md">
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </Button>
+            </div>
           </div>
         </div>
       </motion.nav>
