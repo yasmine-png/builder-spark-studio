@@ -656,30 +656,75 @@ const Portfolio = () => {
         </motion.div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 bg-muted/30">
-        <motion.div 
-          className="container mx-auto px-6"
+      {/* Technologies Section */}
+      <section id="skills" className="py-20 bg-muted/30 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
+            animate={{
+              x: [0, 100, 0],
+              y: [0, -50, 0],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+            animate={{
+              x: [0, -80, 0],
+              y: [0, 50, 0],
+              scale: [1.2, 1, 1.2]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
+
+        <motion.div
+          className="container mx-auto px-6 relative z-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.div 
-            className="text-center mb-16"
+          <motion.div
+            className="text-center mb-20"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Technologies</h2>
-            <motion.div 
-              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
+            <motion.div
+              className="inline-flex items-center space-x-2 mb-6"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-4xl">💻</div>
+              <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+                Technologies I Use
+              </h2>
+              <div className="text-4xl">🚀</div>
+            </motion.div>
+
+            <motion.div
+              className="w-32 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 mx-auto rounded-full"
               initial={{ width: 0 }}
-              whileInView={{ width: 80 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              whileInView={{ width: 128 }}
+              transition={{ duration: 1.5, delay: 0.5 }}
               viewport={{ once: true }}
             />
+
+            <motion.p
+              className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              Cutting-edge tools and frameworks that power my development journey
+            </motion.p>
           </motion.div>
           
           <div className="max-w-6xl mx-auto">
