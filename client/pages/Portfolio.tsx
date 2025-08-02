@@ -55,15 +55,30 @@ const Portfolio = () => {
     }
   };
 
-  const skills = [
-    { name: 'React.js', level: 95, category: 'Frontend', color: 'from-blue-600 to-blue-400' },
-    { name: 'TypeScript', level: 90, category: 'Language', color: 'from-slate-600 to-slate-400' },
-    { name: 'Next.js', level: 88, category: 'Framework', color: 'from-gray-800 to-gray-600' },
-    { name: 'Node.js', level: 85, category: 'Backend', color: 'from-emerald-600 to-emerald-400' },
-    { name: 'UI/UX Design', level: 82, category: 'Design', color: 'from-indigo-600 to-blue-500' },
-    { name: 'MongoDB', level: 80, category: 'Database', color: 'from-green-600 to-green-400' },
-    { name: 'AWS', level: 75, category: 'Cloud', color: 'from-amber-600 to-orange-500' },
-    { name: 'Docker', level: 78, category: 'DevOps', color: 'from-blue-700 to-blue-500' }
+  const frontendSkills = [
+    { name: 'HTML5', icon: '🌐' },
+    { name: 'CSS3', icon: '🎨' },
+    { name: 'JavaScript', icon: '⚡' },
+    { name: 'React.js', icon: '⚛️' },
+    { name: 'Next.js', icon: '▲' },
+    { name: 'TypeScript', icon: '🔷' },
+    { name: 'Tailwind CSS', icon: '💨' },
+    { name: 'SCSS', icon: '🎭' },
+    { name: 'Bootstrap', icon: '🅱️' },
+    { name: 'Redux', icon: '🔄' }
+  ];
+
+  const backendSkills = [
+    { name: 'Node.js', icon: '🟢' },
+    { name: 'Express.js', icon: '🚀' },
+    { name: 'MongoDB', icon: '🍃' },
+    { name: 'MySQL', icon: '🐬' },
+    { name: 'PostgreSQL', icon: '🐘' },
+    { name: 'PHP', icon: '🐘' },
+    { name: 'Python', icon: '🐍' },
+    { name: 'Git/GitHub', icon: '🐙' },
+    { name: 'Docker', icon: '🐳' },
+    { name: 'AWS', icon: '☁️' }
   ];
 
   const experiences = [
