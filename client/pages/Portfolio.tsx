@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { 
-  Mail, Download, Github, Linkedin, ExternalLink, Code, 
+import {
+  Mail, Download, Github, Linkedin, ExternalLink, Code,
   Palette, Server, Database, Monitor, Smartphone, Calendar,
   MapPin, Building, Award, ChevronRight, Star, Eye,
   Heart, MessageCircle, Users, Coffee, Clock, Briefcase
@@ -13,6 +13,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Progress } from '@/components/ui/progress';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -105,7 +106,7 @@ const Portfolio = () => {
       icon: "��️",
       color: "from-cyan-500 to-blue-600",
       technologies: [
-        { name: 'OpenCV', icon: '📷', experience: 'Advanced' },
+        { name: 'OpenCV', icon: '��', experience: 'Advanced' },
         { name: 'TensorFlow', icon: '🧠', experience: 'Intermediate' },
         { name: 'PyTorch', icon: '🔥', experience: 'Intermediate' },
         { name: 'YOLO', icon: '⚡', experience: 'Beginner' }
