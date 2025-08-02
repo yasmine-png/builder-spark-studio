@@ -18,47 +18,47 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 320 65% 52%;
+    --primary: 214 84% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 310 25% 95%;
-    --secondary-foreground: 320 10% 15%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    --muted: 310 25% 95%;
-    --muted-foreground: 320 10% 50%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 280 100% 70%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 40% 98%;
+    --accent-foreground: 222.2 84% 4.9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 310 20% 90%;
-    --input: 310 20% 90%;
-    --ring: 320 65% 52%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 214 84% 56%;
 
     --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 320 5.3% 26.1%;
-    --sidebar-primary: 320 5.9% 10%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 214 84% 56%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 320 4.8% 95.9%;
-    --sidebar-accent-foreground: 320 5.9% 10%;
-    --sidebar-border: 310 13% 91%;
-    --sidebar-ring: 320 65% 52%;
+    --sidebar-accent: 210 40% 98%;
+    --sidebar-accent-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 214 84% 56%;
 
-    /* CV360 Dynamic Colors */
-    --cv360-pink: 320 65% 52%;
-    --cv360-pink-light: 320 65% 95%;
-    --cv360-purple: 280 100% 70%;
-    --cv360-purple-light: 280 100% 95%;
-    --cv360-violet: 260 85% 60%;
-    --cv360-violet-light: 260 85% 95%;
-    --cv360-magenta: 300 85% 60%;
-    --cv360-magenta-light: 300 85% 95%;
-    --cv360-gray: 320 10% 50%;
-    --cv360-gray-light: 320 25% 95%;
+    /* Professional Colors */
+    --cv360-blue: 214 84% 56%;
+    --cv360-blue-light: 214 84% 95%;
+    --cv360-navy: 214 100% 30%;
+    --cv360-navy-light: 214 100% 95%;
+    --cv360-slate: 215 25% 27%;
+    --cv360-slate-light: 215 25% 95%;
+    --cv360-steel: 215 20% 45%;
+    --cv360-steel-light: 215 20% 95%;
+    --cv360-gray: 215 16% 47%;
+    --cv360-gray-light: 210 40% 98%;
   }
 
   .dark {
@@ -71,44 +71,44 @@
     --popover: 320 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 320 65% 52%;
+    --primary: 214 84% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 320 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 320 3.7% 15.9%;
-    --muted-foreground: 320 5% 64.9%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 280 100% 70%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 320 3.7% 15.9%;
-    --input: 320 3.7% 15.9%;
-    --ring: 320 65% 52%;
-    --sidebar-background: 320 5.9% 10%;
-    --sidebar-foreground: 320 4.8% 95.9%;
-    --sidebar-primary: 320 76.3% 48%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 214 84% 56%;
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 214 84% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 320 3.7% 15.9%;
-    --sidebar-accent-foreground: 320 4.8% 95.9%;
-    --sidebar-border: 320 3.7% 15.9%;
-    --sidebar-ring: 320 65% 52%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 214 84% 56%;
 
-    /* CV360 Dynamic Colors Dark Mode */
-    --cv360-pink: 320 65% 60%;
-    --cv360-pink-light: 320 65% 10%;
-    --cv360-purple: 280 100% 75%;
-    --cv360-purple-light: 280 100% 10%;
-    --cv360-violet: 260 85% 65%;
-    --cv360-violet-light: 260 85% 10%;
-    --cv360-magenta: 300 85% 65%;
-    --cv360-magenta-light: 300 85% 10%;
-    --cv360-gray: 320 5% 64.9%;
-    --cv360-gray-light: 320 3.7% 15.9%;
+    /* Professional Colors Dark Mode */
+    --cv360-blue: 214 84% 65%;
+    --cv360-blue-light: 214 84% 10%;
+    --cv360-navy: 214 100% 35%;
+    --cv360-navy-light: 214 100% 10%;
+    --cv360-slate: 215 25% 35%;
+    --cv360-slate-light: 215 25% 10%;
+    --cv360-steel: 215 20% 55%;
+    --cv360-steel-light: 215 20% 10%;
+    --cv360-gray: 215 20.2% 65.1%;
+    --cv360-gray-light: 217.2 32.6% 17.5%;
   }
 }
 
