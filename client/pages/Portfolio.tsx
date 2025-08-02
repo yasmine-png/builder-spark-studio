@@ -61,10 +61,10 @@ const Portfolio = () => {
       icon: "💻",
       color: "from-blue-500 to-purple-600",
       technologies: [
-        { name: 'React', icon: '⚛️', level: 95 },
-        { name: 'Next.js', icon: '▲', level: 92 },
-        { name: 'TypeScript', icon: '🔷', level: 90 },
-        { name: 'Tailwind CSS', icon: '💨', level: 88 }
+        { name: 'React', icon: '⚛️', experience: 'Expert' },
+        { name: 'Next.js', icon: '▲', experience: 'Advanced' },
+        { name: 'TypeScript', icon: '🔷', experience: 'Expert' },
+        { name: 'Tailwind CSS', icon: '💨', experience: 'Expert' }
       ]
     },
     {
@@ -83,10 +83,10 @@ const Portfolio = () => {
       icon: "☁️",
       color: "from-orange-500 to-red-500",
       technologies: [
-        { name: 'MongoDB', icon: '🍃', level: 88 },
-        { name: 'PostgreSQL', icon: '🐘', level: 85 },
-        { name: 'AWS', icon: '🌐', level: 78 },
-        { name: 'Firebase', icon: '🔥', level: 80 }
+        { name: 'MongoDB', icon: '🍃', experience: 'Advanced' },
+        { name: 'PostgreSQL', icon: '🐘', experience: 'Advanced' },
+        { name: 'AWS', icon: '🌐', experience: 'Intermediate' },
+        { name: 'Firebase', icon: '🔥', experience: 'Advanced' }
       ]
     },
     {
