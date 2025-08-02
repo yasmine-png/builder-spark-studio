@@ -746,105 +746,132 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-20">
-        <motion.div 
+        <motion.div
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-            <motion.div
-              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto mb-4"
-              initial={{ width: 0 }}
-              whileInView={{ width: 80 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              viewport={{ once: true }}
-            />
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and passion for development.
+            <h2 className="text-4xl font-bold mb-6">Projects</h2>
+            <p className="text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Following projects showcase my skills and experience through real-world examples of my work.
+              Each project is briefly described with links to code repositories and live demos. It reflects my
+              ability to solve complex problems, work with different technologies, and manage projects effectively.
             </p>
           </motion.div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {[
+              {
+                title: "E-Commerce Website",
+                description: "Complete e-commerce platform with admin dashboard, product management, order processing. Features secure authentication and advanced filtering functionality.",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+                tech: ["React", "Node.js", "Express", "MongoDB", "Redux"],
+                codeLink: "https://github.com/yasmine/ecommerce-website",
+                demoLink: "https://ecommerce-demo.example.com"
+              },
+              {
+                title: "Project Management Website (TeamSpace)",
+                description: "Team-inspired task management application with real-time collaboration features, customizable workspaces and team tracking functionality.",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
+                tech: ["React", "Node.js", "MongoDB", "Express", "WebSocket"],
+                codeLink: "https://github.com/yasmine/teamspace",
+                demoLink: "https://teamspace-demo.example.com"
+              },
+              {
+                title: "Social Media Website (SocialWave)",
+                description: "Complete social network with posts, comments, and messaging features. Includes real-time notifications following functionality and content moderation tools.",
+                image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=400&h=250&fit=crop",
+                tech: ["React", "JWT", "Node.js", "Socket.io", "MongoDB"],
+                codeLink: "https://github.com/yasmine/socialwave",
+                demoLink: "https://socialwave-demo.example.com"
+              },
+              {
+                title: "Task Management App",
+                description: "Productivity-focused task manager with drag-and-drop functionality, deadline tracking, and team collaboration features.",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
+                tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+                codeLink: "https://github.com/yasmine/task-manager",
+                demoLink: "https://task-manager-demo.example.com"
+              },
+              {
+                title: "Weather App",
+                description: "Real-time weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
+                image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop",
+                tech: ["React", "API", "Chart.js", "CSS3"],
+                codeLink: "https://github.com/yasmine/weather-app",
+                demoLink: "https://weather-app-demo.example.com"
+              },
+              {
+                title: "Transform Your Business",
+                description: "Modern business landing page with responsive design, contact forms, and service showcase functionality.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
+                tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+                codeLink: "https://github.com/yasmine/business-landing",
+                demoLink: "https://business-landing-demo.example.com"
+              }
+            ].map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-border/30 bg-card/80 backdrop-blur-sm">
-                  <div className="relative overflow-hidden">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-border/30 bg-card/80 backdrop-blur-sm">
+                  {/* Project Image */}
+                  <div className="relative h-48 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <div className="flex space-x-3">
-                        <Button size="sm" className="shadow-lg">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </Button>
-                        <Button size="sm" variant="outline" className="bg-white/10 backdrop-blur-sm">
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </Button>
-                      </div>
-                    </div>
-                    {project.featured && (
-                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-slate-600 text-white">
-                        <Star className="h-3 w-3 mr-1" />
-                        Featured
-                      </Badge>
-                    )}
                   </div>
-                  
+
                   <CardContent className="p-6">
-                    <h3 className="font-bold text-xl mb-3 group-hover:text-blue-600 transition-colors">
+                    <h3 className="font-bold text-lg mb-3 group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1 mb-4">
                       {project.tech.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
+                        <Badge key={tech} variant="secondary" className="text-xs px-2 py-1">
                           {tech}
                         </Badge>
                       ))}
                     </div>
 
-                    <div className="flex space-x-3 pt-2">
-                      <Button
-                        size="sm"
-                        className="flex-1 group"
-                        onClick={() => window.open(project.demoLink, '_blank')}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2 group-hover:animate-bounce" />
-                        Demo
-                      </Button>
+                    {/* Action Buttons */}
+                    <div className="flex space-x-2">
                       <Button
                         size="sm"
                         variant="outline"
-                        className="flex-1 group"
+                        className="flex-1 text-xs"
                         onClick={() => window.open(project.codeLink, '_blank')}
                       >
-                        <Github className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                        <Github className="h-3 w-3 mr-1" />
                         Code
+                      </Button>
+                      <Button
+                        size="sm"
+                        className="flex-1 text-xs"
+                        onClick={() => window.open(project.demoLink, '_blank')}
+                      >
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Demo
                       </Button>
                     </div>
                   </CardContent>
