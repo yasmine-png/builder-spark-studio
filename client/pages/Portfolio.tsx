@@ -1,21 +1,42 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Download, Github, Linkedin, ExternalLink, Code, Palette, Server, Database, Monitor, Smartphone } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { 
+  Mail, Download, Github, Linkedin, ExternalLink, Code, 
+  Palette, Server, Database, Monitor, Smartphone, Calendar,
+  MapPin, Building, Award, ChevronRight, Star, Eye,
+  Heart, MessageCircle, Users, Coffee, Clock, Briefcase
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Progress } from '@/components/ui/progress';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -35,38 +56,98 @@ const Portfolio = () => {
   };
 
   const skills = [
-    { name: 'React', level: 90, icon: Code },
-    { name: 'TypeScript', level: 85, icon: Code },
-    { name: 'Node.js', level: 80, icon: Server },
-    { name: 'UI/UX Design', level: 75, icon: Palette },
-    { name: 'MongoDB', level: 70, icon: Database },
-    { name: 'Mobile Dev', level: 65, icon: Smartphone }
+    { name: 'React.js', level: 95, category: 'Frontend', color: 'from-blue-500 to-cyan-500' },
+    { name: 'TypeScript', level: 90, category: 'Language', color: 'from-blue-600 to-blue-400' },
+    { name: 'Next.js', level: 88, category: 'Framework', color: 'from-gray-900 to-gray-600' },
+    { name: 'Node.js', level: 85, category: 'Backend', color: 'from-green-600 to-green-400' },
+    { name: 'UI/UX Design', level: 82, category: 'Design', color: 'from-purple-600 to-pink-500' },
+    { name: 'MongoDB', level: 80, category: 'Database', color: 'from-green-500 to-emerald-500' },
+    { name: 'AWS', level: 75, category: 'Cloud', color: 'from-orange-500 to-yellow-500' },
+    { name: 'Docker', level: 78, category: 'DevOps', color: 'from-blue-500 to-blue-700' }
+  ];
+
+  const experiences = [
+    {
+      title: 'Senior Frontend Developer',
+      company: 'TechCorp Solutions',
+      location: 'San Francisco, CA',
+      period: '2022 - Present',
+      description: 'Leading frontend development for enterprise applications, mentoring junior developers, and implementing modern React architectures.',
+      achievements: [
+        'Led development of 5+ major features increasing user engagement by 40%',
+        'Mentored 3 junior developers and established coding standards',
+        'Reduced bundle size by 35% through optimization techniques'
+      ],
+      technologies: ['React', 'TypeScript', 'Next.js', 'GraphQL']
+    },
+    {
+      title: 'Full Stack Developer',
+      company: 'StartupX',
+      location: 'New York, NY',
+      period: '2021 - 2022',
+      description: 'Developed and maintained full-stack applications using modern web technologies in a fast-paced startup environment.',
+      achievements: [
+        'Built complete e-commerce platform from scratch',
+        'Implemented real-time chat system with 99.9% uptime',
+        'Optimized database queries reducing response time by 50%'
+      ],
+      technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io']
+    },
+    {
+      title: 'Frontend Developer',
+      company: 'Digital Agency Pro',
+      location: 'Remote',
+      period: '2020 - 2021',
+      description: 'Created responsive websites and web applications for various clients, focusing on performance and user experience.',
+      achievements: [
+        'Delivered 15+ client projects with 100% satisfaction rate',
+        'Improved website performance scores by average of 60%',
+        'Implemented advanced animations and micro-interactions'
+      ],
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Vue.js']
+    }
   ];
 
   const projects = [
     {
-      title: 'E-commerce Platform',
-      description: 'Application de commerce électronique moderne avec React et Node.js',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: '/api/placeholder/400/250',
+      title: 'E-commerce Dashboard',
+      description: 'A comprehensive admin dashboard for e-commerce management with real-time analytics and inventory tracking.',
+      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
       link: '#',
-      github: '#'
+      github: '#',
+      featured: true,
+      stats: { views: '2.5k', likes: '324', comments: '89' }
     },
     {
-      title: 'Task Management App',
-      description: 'Application de gestion de tâches avec interface drag-and-drop',
-      tech: ['React', 'TypeScript', 'Firebase'],
-      image: '/api/placeholder/400/250',
+      title: 'AI-Powered Task Manager',
+      description: 'Smart task management application with AI suggestions and automated scheduling capabilities.',
+      tech: ['Next.js', 'OpenAI API', 'Prisma', 'PostgreSQL'],
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
       link: '#',
-      github: '#'
+      github: '#',
+      featured: true,
+      stats: { views: '1.8k', likes: '256', comments: '45' }
     },
     {
-      title: 'Portfolio Website',
-      description: 'Site portfolio responsive avec animations avancées',
-      tech: ['React', 'Framer Motion', 'TailwindCSS'],
-      image: '/api/placeholder/400/250',
+      title: 'Real-time Collaboration Tool',
+      description: 'Web application for team collaboration with live editing, video calls, and project management features.',
+      tech: ['React', 'Socket.io', 'WebRTC', 'Redis'],
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=300&fit=crop',
       link: '#',
-      github: '#'
+      github: '#',
+      featured: false,
+      stats: { views: '3.2k', likes: '412', comments: '156' }
+    },
+    {
+      title: 'Fitness Tracking Mobile App',
+      description: 'Cross-platform mobile app for fitness tracking with social features and workout recommendations.',
+      tech: ['React Native', 'Firebase', 'Redux', 'Expo'],
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop',
+      link: '#',
+      github: '#',
+      featured: false,
+      stats: { views: '1.9k', likes: '298', comments: '73' }
     }
   ];
 
@@ -79,11 +160,34 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+        <motion.div 
+          className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, 100, 0], 
+            y: [0, -100, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, -150, 0], 
+            y: [0, 100, 0],
+            scale: [1.2, 1, 1.2]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        />
+      </div>
+
       {/* Navigation */}
       <motion.nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+          isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg border-b border-border/50' : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -92,36 +196,51 @@ const Portfolio = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <motion.div 
-              className="text-2xl font-bold text-primary"
+              className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
             >
               YB
             </motion.div>
             
             <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className={`capitalize transition-colors hover:text-primary ${
-                    activeSection === item ? 'text-primary' : 'text-muted-foreground'
+              {[
+                { id: 'home', label: 'Home' },
+                { id: 'about', label: 'About' },
+                { id: 'experience', label: 'Experience' },
+                { id: 'skills', label: 'Skills' },
+                { id: 'projects', label: 'Projects' },
+                { id: 'contact', label: 'Contact' }
+              ].map((item) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative transition-colors hover:text-primary ${
+                    activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
                   }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {item === 'home' ? 'Accueil' : 
-                   item === 'about' ? 'À propos' : 
-                   item === 'skills' ? 'Compétences' : 
-                   item === 'projects' ? 'Projets' : 'Contact'}
-                </button>
+                  {item.label}
+                  {activeSection === item.id && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                      layoutId="activeIndicator"
+                    />
+                  )}
+                </motion.button>
               ))}
             </div>
+
+            <Button className="hidden md:flex">
+              <Download className="mr-2 h-4 w-4" />
+              Resume
+            </Button>
           </div>
         </div>
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-        
+      <section id="home" className="min-h-screen flex items-center justify-center relative">
         <motion.div 
           className="container mx-auto px-6 py-20"
           variants={staggerContainer}
@@ -129,41 +248,60 @@ const Portfolio = () => {
           animate="animate"
         >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeInUp} className="space-y-6">
+            <motion.div variants={fadeInUp} className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Badge variant="outline" className="mb-4 text-primary border-primary/50">
+                  <Star className="mr-2 h-3 w-3" />
+                  Available for freelance
+                </Badge>
+              </motion.div>
+              
               <motion.h1 
                 className="text-5xl lg:text-7xl font-bold leading-tight"
                 variants={fadeInUp}
               >
-                Salut, je suis{' '}
-                <span className="text-primary">Yasmine</span>
+                Hi, I'm{' '}
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Yasmine
+                </span>
               </motion.h1>
               
-              <motion.h2 
-                className="text-2xl lg:text-3xl text-muted-foreground"
-                variants={fadeInUp}
-              >
-                Développeuse Frontend
-              </motion.h2>
+              <motion.div variants={fadeInUp}>
+                <h2 className="text-2xl lg:text-4xl text-muted-foreground mb-4">
+                  Frontend Developer
+                </h2>
+                <motion.div 
+                  className="flex items-center space-x-2 text-muted-foreground"
+                  variants={fadeInUp}
+                >
+                  <MapPin className="h-4 w-4" />
+                  <span>Based in Tunisia</span>
+                </motion.div>
+              </motion.div>
               
               <motion.p 
-                className="text-lg text-muted-foreground max-w-2xl"
+                className="text-lg text-muted-foreground max-w-2xl leading-relaxed"
                 variants={fadeInUp}
               >
-                Passionnée par la création d'expériences web modernes et intuitives. 
-                Je transforme des idées en applications digitales innovantes.
+                Passionate about creating modern, intuitive web experiences. I transform ideas 
+                into innovative digital applications with clean code and beautiful design.
               </motion.p>
               
               <motion.div 
                 className="flex flex-wrap gap-4"
                 variants={fadeInUp}
               >
-                <Button size="lg" className="group">
+                <Button size="lg" className="group shadow-lg hover:shadow-xl transition-all">
                   <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                  Me Contacter
+                  Get In Touch
                 </Button>
                 <Button variant="outline" size="lg" className="group">
                   <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                  Télécharger CV
+                  Download CV
                 </Button>
               </motion.div>
               
@@ -171,10 +309,10 @@ const Portfolio = () => {
                 className="flex space-x-4 pt-4"
                 variants={fadeInUp}
               >
-                <Button variant="ghost" size="sm" className="hover:text-primary">
+                <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
                   <Github className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="sm" className="hover:text-primary">
+                <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
                   <Linkedin className="h-5 w-5" />
                 </Button>
               </motion.div>
@@ -186,14 +324,37 @@ const Portfolio = () => {
             >
               <motion.div
                 className="relative"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur-lg opacity-30 animate-pulse" />
-                <Avatar className="w-80 h-80 border-4 border-primary/20 relative z-10">
-                  <AvatarImage src="/api/placeholder/320/320" alt="Yasmine" />
-                  <AvatarFallback className="text-6xl">YB</AvatarFallback>
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-2xl"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.5, 0.3]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
+                <Avatar className="w-80 h-80 border-4 border-primary/20 relative z-10 shadow-2xl">
+                  <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" alt="Yasmine" />
+                  <AvatarFallback className="text-6xl bg-gradient-to-br from-primary to-accent text-white">YB</AvatarFallback>
                 </Avatar>
+                
+                {/* Floating elements */}
+                <motion.div
+                  className="absolute -top-4 -right-4 bg-primary text-white p-3 rounded-full shadow-lg"
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <Code className="h-6 w-6" />
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-4 -left-4 bg-accent text-white p-3 rounded-full shadow-lg"
+                  animate={{ y: [5, -5, 5] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+                >
+                  <Palette className="h-6 w-6" />
+                </motion.div>
               </motion.div>
             </motion.div>
           </div>
@@ -216,8 +377,14 @@ const Portfolio = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">À Propos de Moi</h2>
-            <div className="w-20 h-1 bg-primary mx-auto" />
+            <h2 className="text-4xl font-bold mb-4">About Me</h2>
+            <motion.div 
+              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
           </motion.div>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -227,35 +394,37 @@ const Portfolio = () => {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold mb-6">Mon Parcours</h3>
+              <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Développeuse passionnée avec plus de 3 ans d'expérience dans la création 
-                d'applications web modernes. Je me spécialise dans les technologies frontend 
-                avancées et j'aime résoudre des problèmes complexes avec des solutions élégantes.
+                Passionate developer with 3+ years of experience crafting modern web applications. 
+                I specialize in frontend technologies and love solving complex problems with elegant solutions.
               </p>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Mon approche combine créativité et technicité pour livrer des expériences 
-                utilisateur exceptionnelles. Je suis toujours à la recherche de nouveaux 
-                défis et d'opportunités d'apprentissage.
+                My approach combines creativity and technical expertise to deliver exceptional user experiences. 
+                I'm always seeking new challenges and learning opportunities.
               </p>
               
               <div className="grid grid-cols-2 gap-6 mt-8">
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">3+</h4>
-                  <p className="text-sm text-muted-foreground">Années d'expérience</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">20+</h4>
-                  <p className="text-sm text-muted-foreground">Projets réalisés</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">100%</h4>
-                  <p className="text-sm text-muted-foreground">Clients satisfaits</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary mb-2">24/7</h4>
-                  <p className="text-sm text-muted-foreground">Support disponible</p>
-                </div>
+                {[
+                  { number: '3+', label: 'Years Experience', icon: Clock },
+                  { number: '20+', label: 'Projects Completed', icon: Briefcase },
+                  { number: '100%', label: 'Client Satisfaction', icon: Heart },
+                  { number: '24/7', label: 'Support Available', icon: Users }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    className="text-center p-4 rounded-lg bg-background/50 backdrop-blur-sm"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <stat.icon className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <h4 className="font-bold text-2xl text-primary mb-1">{stat.number}</h4>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
             
@@ -265,40 +434,43 @@ const Portfolio = () => {
               whileInView="animate"
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
+              className="space-y-6"
             >
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold mb-6">Technologies que j'utilise</h3>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    'React & Next.js',
-                    'TypeScript',
-                    'Node.js & Express',
-                    'MongoDB & PostgreSQL',
-                    'TailwindCSS',
-                    'Git & GitHub'
-                  ].map((tech, index) => (
-                    <motion.div
-                      key={tech}
-                      className="flex items-center space-x-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="w-2 h-2 bg-primary rounded-full" />
-                      <span className="text-sm">{tech}</span>
-                    </motion.div>
-                  ))}
-                </div>
+              <h3 className="text-2xl font-semibold mb-6">Technologies I Use</h3>
+              
+              <div className="space-y-4">
+                {[
+                  { name: 'Frontend Development', techs: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
+                  { name: 'Backend Development', techs: ['Node.js', 'Express', 'Python', 'GraphQL'] },
+                  { name: 'Database & Cloud', techs: ['MongoDB', 'PostgreSQL', 'AWS', 'Firebase'] },
+                  { name: 'Tools & Workflow', techs: ['Git', 'Docker', 'Figma', 'VS Code'] }
+                ].map((category, categoryIndex) => (
+                  <motion.div
+                    key={category.name}
+                    className="p-4 rounded-lg bg-background/50 backdrop-blur-sm"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: categoryIndex * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <h4 className="font-semibold text-primary mb-3">{category.name}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {category.techs.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
         </motion.div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20">
+      {/* Experience Section */}
+      <section id="experience" className="py-20">
         <motion.div 
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
@@ -313,11 +485,146 @@ const Portfolio = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Mes Compétences</h2>
-            <div className="w-20 h-1 bg-primary mx-auto" />
+            <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
+            <motion.div 
+              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline line */}
+              <motion.div 
+                className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent"
+                initial={{ height: 0 }}
+                whileInView={{ height: '100%' }}
+                transition={{ duration: 2 }}
+                viewport={{ once: true }}
+              />
+              
+              <div className="space-y-12">
+                {experiences.map((exp, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative flex items-start space-x-8"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    {/* Timeline dot */}
+                    <motion.div 
+                      className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center shadow-lg"
+                      whileHover={{ scale: 1.1 }}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: index * 0.2 + 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      <Building className="h-8 w-8 text-white" />
+                    </motion.div>
+                    
+                    {/* Experience card */}
+                    <motion.div 
+                      className="flex-1"
+                      whileHover={{ y: -5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Card className="hover:shadow-xl transition-all duration-300">
+                        <CardHeader>
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <CardTitle className="text-xl text-primary">{exp.title}</CardTitle>
+                              <CardDescription className="text-lg font-semibold text-foreground mt-1">
+                                {exp.company}
+                              </CardDescription>
+                              <div className="flex items-center space-x-4 mt-2 text-muted-foreground">
+                                <div className="flex items-center space-x-1">
+                                  <MapPin className="h-4 w-4" />
+                                  <span className="text-sm">{exp.location}</span>
+                                </div>
+                                <div className="flex items-center space-x-1">
+                                  <Calendar className="h-4 w-4" />
+                                  <span className="text-sm">{exp.period}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <Badge variant="outline" className="text-primary border-primary/50">
+                              Current
+                            </Badge>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground mb-4">{exp.description}</p>
+                          
+                          <div className="space-y-3 mb-4">
+                            <h4 className="font-semibold text-sm">Key Achievements:</h4>
+                            <ul className="space-y-2">
+                              {exp.achievements.map((achievement, i) => (
+                                <motion.li 
+                                  key={i}
+                                  className="flex items-start space-x-2 text-sm text-muted-foreground"
+                                  initial={{ opacity: 0, x: -20 }}
+                                  whileInView={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: index * 0.2 + i * 0.1 }}
+                                  viewport={{ once: true }}
+                                >
+                                  <ChevronRight className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                                  <span>{achievement}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech) => (
+                              <Badge key={tech} variant="secondary" className="text-xs">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 bg-muted/30">
+        <motion.div 
+          className="container mx-auto px-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="text-center mb-16"
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
+            <motion.div 
+              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
@@ -325,29 +632,36 @@ const Portfolio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                className="p-6 rounded-xl bg-background/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300"
               >
-                <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <skill.icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold">{skill.name}</h3>
-                        <p className="text-sm text-muted-foreground">{skill.level}%</p>
-                      </div>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <motion.div 
-                        className="bg-primary h-2 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        viewport={{ once: true }}
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="font-semibold text-lg">{skill.name}</h3>
+                    <p className="text-sm text-muted-foreground">{skill.category}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">{skill.level}%</span>
+                  </div>
+                </div>
+                
+                <div className="relative">
+                  <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
+                    <motion.div 
+                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      transition={{ duration: 1.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <motion.div
+                        className="absolute inset-0 bg-white/20 rounded-full"
+                        animate={{ x: [-100, 300] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
                       />
-                    </div>
-                  </CardContent>
-                </Card>
+                    </motion.div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -355,7 +669,7 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-muted/30">
+      <section id="projects" className="py-20">
         <motion.div 
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
@@ -370,11 +684,20 @@ const Portfolio = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Mes Projets</h2>
-            <div className="w-20 h-1 bg-primary mx-auto" />
+            <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+            <motion.div 
+              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Here are some of my recent projects that showcase my skills and passion for development.
+            </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -382,29 +705,62 @@ const Portfolio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="group"
               >
-                <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-2">
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500">
                   <div className="relative overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <div className="flex space-x-2">
-                        <Button size="sm" variant="secondary">
-                          <ExternalLink className="h-4 w-4" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="flex space-x-3">
+                        <Button size="sm" className="shadow-lg">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
                         </Button>
-                        <Button size="sm" variant="secondary">
-                          <Github className="h-4 w-4" />
+                        <Button size="sm" variant="outline" className="bg-white/10 backdrop-blur-sm">
+                          <Github className="h-4 w-4 mr-2" />
+                          Code
                         </Button>
                       </div>
                     </div>
+                    {project.featured && (
+                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-primary to-accent text-white">
+                        <Star className="h-3 w-3 mr-1" />
+                        Featured
+                      </Badge>
+                    )}
                   </div>
                   
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
+                    <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex space-x-4 text-sm text-muted-foreground">
+                        <div className="flex items-center space-x-1">
+                          <Eye className="h-4 w-4" />
+                          <span>{project.stats.views}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Heart className="h-4 w-4" />
+                          <span>{project.stats.likes}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <MessageCircle className="h-4 w-4" />
+                          <span>{project.stats.comments}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
                         <Badge key={tech} variant="secondary" className="text-xs">
@@ -421,7 +777,7 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 bg-muted/30">
         <motion.div 
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
@@ -436,50 +792,101 @@ const Portfolio = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Contactez-moi</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
+            <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
+            <motion.div 
+              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter !
+              Have a project in mind? Let's discuss how we can bring your ideas to life!
             </p>
           </motion.div>
           
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
             <motion.div
               variants={fadeInUp}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
+              className="space-y-8"
             >
-              <Card>
-                <CardContent className="p-8">
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-2 block">Nom</label>
-                        <Input placeholder="Votre nom" />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-2 block">Email</label>
-                        <Input type="email" placeholder="votre@email.com" />
-                      </div>
+              <Card className="p-8 backdrop-blur-sm bg-background/50">
+                <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Sujet</label>
-                      <Input placeholder="Sujet de votre message" />
+                      <p className="font-semibold">Email</p>
+                      <p className="text-muted-foreground">yasmine@example.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <MapPin className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Message</label>
-                      <Textarea 
-                        placeholder="Votre message..." 
-                        rows={5}
-                      />
+                      <p className="font-semibold">Location</p>
+                      <p className="text-muted-foreground">Tunisia</p>
                     </div>
-                    <Button size="lg" className="w-full group">
-                      <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                      Envoyer le message
-                    </Button>
-                  </form>
-                </CardContent>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Coffee className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Let's Chat</p>
+                      <p className="text-muted-foreground">Available for coffee chats</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              variants={fadeInUp}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Card className="p-8 backdrop-blur-sm bg-background/50">
+                <form className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">First Name</label>
+                      <Input placeholder="John" className="bg-background/50" />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Last Name</label>
+                      <Input placeholder="Doe" className="bg-background/50" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Email</label>
+                    <Input type="email" placeholder="john@example.com" className="bg-background/50" />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Subject</label>
+                    <Input placeholder="Project Discussion" className="bg-background/50" />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Message</label>
+                    <Textarea 
+                      placeholder="Tell me about your project..." 
+                      rows={5}
+                      className="bg-background/50"
+                    />
+                  </div>
+                  <Button size="lg" className="w-full group shadow-lg hover:shadow-xl transition-all">
+                    <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                    Send Message
+                  </Button>
+                </form>
               </Card>
             </motion.div>
           </div>
@@ -487,17 +894,19 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-muted/50 border-t">
+      <footer className="py-12 border-t bg-background/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-muted-foreground mb-4 md:mb-0">
-              © 2024 Yasmine Boukraiem. Tous droits réservés.
+            <div className="mb-4 md:mb-0">
+              <p className="text-muted-foreground">
+                © 2024 Yasmine Boukraiem. All rights reserved.
+              </p>
             </div>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="hover:text-primary">
+              <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
                 <Github className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="hover:text-primary">
+              <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
                 <Linkedin className="h-5 w-5" />
               </Button>
             </div>
