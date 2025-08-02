@@ -116,10 +116,10 @@ const Portfolio = () => {
       icon: "🗄️",
       color: "from-indigo-500 to-purple-600",
       technologies: [
-        { name: 'Redis', icon: '⚡', level: 80 },
-        { name: 'Elasticsearch', icon: '🔍', level: 72 },
-        { name: 'Neo4j', icon: '🕸️', level: 68 },
-        { name: 'Apache Kafka', icon: '📡', level: 65 }
+        { name: 'Redis', icon: '⚡', experience: 'Advanced' },
+        { name: 'Elasticsearch', icon: '🔍', experience: 'Intermediate' },
+        { name: 'Neo4j', icon: '🕸️', experience: 'Beginner' },
+        { name: 'Apache Kafka', icon: '📡', experience: 'Beginner' }
       ]
     }
   ];
