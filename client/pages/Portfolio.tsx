@@ -370,7 +370,7 @@ const Portfolio = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
@@ -378,8 +378,8 @@ const Portfolio = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4">About Me</h2>
-            <motion.div 
-              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
+            <motion.div
+              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -478,7 +478,7 @@ const Portfolio = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
@@ -486,8 +486,8 @@ const Portfolio = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
-            <motion.div 
-              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"
+            <motion.div
+              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -498,8 +498,8 @@ const Portfolio = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <motion.div 
-                className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent"
+              <motion.div
+                className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-slate-600"
                 initial={{ height: 0 }}
                 whileInView={{ height: '100%' }}
                 transition={{ duration: 2 }}
