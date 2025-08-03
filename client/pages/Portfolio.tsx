@@ -510,7 +510,7 @@ const Portfolio = () => {
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <div className="p-2 bg-blue-100 rounded-lg">
-                    <MapPin className="h-4 w-4 text-blue-600" />
+                    <Phone className="h-4 w-4 text-blue-600" />
                   </div>
                   <span className="text-sm text-muted-foreground">+216 55876375</span>
                 </div>
