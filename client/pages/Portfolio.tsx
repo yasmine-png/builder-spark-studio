@@ -1,22 +1,50 @@
-import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  Mail, Download, Github, Linkedin, ExternalLink, Code,
-  Palette, Server, Database, Monitor, Smartphone, Calendar,
-  MapPin, Building, Award, ChevronRight, Star, Eye,
-  Heart, MessageCircle, Users, Coffee, Clock, Briefcase, ArrowUp, Phone
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Progress } from '@/components/ui/progress';
-import { ThemeToggle } from '@/components/theme-toggle';
+  Mail,
+  Download,
+  Github,
+  Linkedin,
+  ExternalLink,
+  Code,
+  Palette,
+  Server,
+  Database,
+  Monitor,
+  Smartphone,
+  Calendar,
+  MapPin,
+  Building,
+  Award,
+  ChevronRight,
+  Star,
+  Eye,
+  Heart,
+  MessageCircle,
+  Users,
+  Coffee,
+  Clock,
+  Briefcase,
+  ArrowUp,
+  Phone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Progress } from "@/components/ui/progress";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -25,10 +53,17 @@ const Portfolio = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
-      const current = sections.find(section => {
+      const sections = [
+        "home",
+        "about",
+        "experience",
+        "skills",
+        "projects",
+        "contact",
+      ];
+      const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -38,23 +73,23 @@ const Portfolio = () => {
       });
       if (current) setActiveSection(current);
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.6 },
   };
 
   const staggerContainer = {
     animate: {
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const techCategories = [
@@ -63,170 +98,181 @@ const Portfolio = () => {
       icon: "💻",
       color: "from-blue-500 to-purple-600",
       technologies: [
-        { name: 'React', icon: '⚛️', experience: 'Expert' },
-        { name: 'Next.js', icon: '▲', experience: 'Advanced' },
-        { name: 'TypeScript', icon: '🔷', experience: 'Expert' },
-        { name: 'Tailwind CSS', icon: '💨', experience: 'Expert' }
-      ]
+        { name: "React", icon: "⚛️", experience: "Expert" },
+        { name: "Next.js", icon: "▲", experience: "Advanced" },
+        { name: "TypeScript", icon: "🔷", experience: "Expert" },
+        { name: "Tailwind CSS", icon: "💨", experience: "Expert" },
+      ],
     },
     {
       title: "Backend Development",
       icon: "⚙️",
       color: "from-green-500 to-emerald-600",
       technologies: [
-        { name: 'Node.js', icon: '🟢', level: 85 },
-        { name: 'Express', icon: '��', level: 82 },
-        { name: 'Python', icon: '🐍', level: 80 },
-        { name: 'GraphQL', icon: '📊', level: 75 }
-      ]
+        { name: "Node.js", icon: "🟢", level: 85 },
+        { name: "Express", icon: "��", level: 82 },
+        { name: "Python", icon: "🐍", level: 80 },
+        { name: "GraphQL", icon: "📊", level: 75 },
+      ],
     },
     {
       title: "Database & Cloud",
       icon: "☁️",
       color: "from-orange-500 to-red-500",
       technologies: [
-        { name: 'MongoDB', icon: '🍃', experience: 'Advanced' },
-        { name: 'PostgreSQL', icon: '🐘', experience: 'Advanced' },
-        { name: 'AWS', icon: '🌐', experience: 'Intermediate' },
-        { name: 'Firebase', icon: '🔥', experience: 'Advanced' }
-      ]
+        { name: "MongoDB", icon: "🍃", experience: "Advanced" },
+        { name: "PostgreSQL", icon: "🐘", experience: "Advanced" },
+        { name: "AWS", icon: "🌐", experience: "Intermediate" },
+        { name: "Firebase", icon: "🔥", experience: "Advanced" },
+      ],
     },
     {
       title: "Tools & Workflow",
       icon: "���️",
       color: "from-purple-500 to-pink-600",
       technologies: [
-        { name: 'Git', icon: '🐙', experience: 'Expert' },
-        { name: 'Docker', icon: '🐳', experience: 'Intermediate' },
-        { name: 'Figma', icon: '🎨', experience: 'Advanced' },
-        { name: 'VS Code', icon: '💻', experience: 'Expert' }
-      ]
+        { name: "Git", icon: "🐙", experience: "Expert" },
+        { name: "Docker", icon: "🐳", experience: "Intermediate" },
+        { name: "Figma", icon: "🎨", experience: "Advanced" },
+        { name: "VS Code", icon: "💻", experience: "Expert" },
+      ],
     },
     {
       title: "Computer Vision",
       icon: "��️",
       color: "from-cyan-500 to-blue-600",
       technologies: [
-        { name: 'OpenCV', icon: '��', experience: 'Advanced' },
-        { name: 'TensorFlow', icon: '🧠', experience: 'Intermediate' },
-        { name: 'PyTorch', icon: '🔥', experience: 'Intermediate' },
-        { name: 'YOLO', icon: '⚡', experience: 'Beginner' }
-      ]
+        { name: "OpenCV", icon: "��", experience: "Advanced" },
+        { name: "TensorFlow", icon: "🧠", experience: "Intermediate" },
+        { name: "PyTorch", icon: "🔥", experience: "Intermediate" },
+        { name: "YOLO", icon: "⚡", experience: "Beginner" },
+      ],
     },
     {
       title: "Advanced Databases",
       icon: "🗄️",
       color: "from-indigo-500 to-purple-600",
       technologies: [
-        { name: 'Redis', icon: '⚡', experience: 'Advanced' },
-        { name: 'Elasticsearch', icon: '🔍', experience: 'Intermediate' },
-        { name: 'Neo4j', icon: '🕸️', experience: 'Beginner' },
-        { name: 'Apache Kafka', icon: '📡', experience: 'Beginner' }
-      ]
-    }
+        { name: "Redis", icon: "⚡", experience: "Advanced" },
+        { name: "Elasticsearch", icon: "🔍", experience: "Intermediate" },
+        { name: "Neo4j", icon: "🕸️", experience: "Beginner" },
+        { name: "Apache Kafka", icon: "📡", experience: "Beginner" },
+      ],
+    },
   ];
 
   const experiences = [
     {
-      title: 'Senior Frontend Developer',
-      company: 'TechCorp Solutions',
-      location: 'San Francisco, CA',
-      period: '2022 - Present',
-      description: 'Leading frontend development for enterprise applications, mentoring junior developers, and implementing modern React architectures.',
+      title: "Senior Frontend Developer",
+      company: "TechCorp Solutions",
+      location: "San Francisco, CA",
+      period: "2022 - Present",
+      description:
+        "Leading frontend development for enterprise applications, mentoring junior developers, and implementing modern React architectures.",
       achievements: [
-        'Led development of 5+ major features increasing user engagement by 40%',
-        'Mentored 3 junior developers and established coding standards',
-        'Reduced bundle size by 35% through optimization techniques'
+        "Led development of 5+ major features increasing user engagement by 40%",
+        "Mentored 3 junior developers and established coding standards",
+        "Reduced bundle size by 35% through optimization techniques",
       ],
-      technologies: ['React', 'TypeScript', 'Next.js', 'GraphQL']
+      technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
     },
     {
-      title: 'Full Stack Developer',
-      company: 'StartupX',
-      location: 'New York, NY',
-      period: '2021 - 2022',
-      description: 'Developed and maintained full-stack applications using modern web technologies in a fast-paced startup environment.',
+      title: "Full Stack Developer",
+      company: "StartupX",
+      location: "New York, NY",
+      period: "2021 - 2022",
+      description:
+        "Developed and maintained full-stack applications using modern web technologies in a fast-paced startup environment.",
       achievements: [
-        'Built complete e-commerce platform from scratch',
-        'Implemented real-time chat system with 99.9% uptime',
-        'Optimized database queries reducing response time by 50%'
+        "Built complete e-commerce platform from scratch",
+        "Implemented real-time chat system with 99.9% uptime",
+        "Optimized database queries reducing response time by 50%",
       ],
-      technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io']
+      technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
     },
     {
-      title: 'Frontend Developer',
-      company: 'Digital Agency Pro',
-      location: 'Remote',
-      period: '2020 - 2021',
-      description: 'Created responsive websites and web applications for various clients, focusing on performance and user experience.',
+      title: "Frontend Developer",
+      company: "Digital Agency Pro",
+      location: "Remote",
+      period: "2020 - 2021",
+      description:
+        "Created responsive websites and web applications for various clients, focusing on performance and user experience.",
       achievements: [
-        'Delivered 15+ client projects with 100% satisfaction rate',
-        'Improved website performance scores by average of 60%',
-        'Implemented advanced animations and micro-interactions'
+        "Delivered 15+ client projects with 100% satisfaction rate",
+        "Improved website performance scores by average of 60%",
+        "Implemented advanced animations and micro-interactions",
       ],
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Vue.js']
-    }
+      technologies: ["HTML5", "CSS3", "JavaScript", "Vue.js"],
+    },
   ];
 
   const projects = [
     {
-      title: 'E-commerce Dashboard',
-      description: 'A comprehensive admin dashboard for e-commerce management with real-time analytics and inventory tracking.',
-      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
-      demoLink: 'https://demo.example.com',
-      codeLink: 'https://github.com/yasmine/ecommerce-dashboard',
-      featured: true
+      title: "E-commerce Dashboard",
+      description:
+        "A comprehensive admin dashboard for e-commerce management with real-time analytics and inventory tracking.",
+      tech: ["React", "TypeScript", "Node.js", "MongoDB"],
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
+      demoLink: "https://demo.example.com",
+      codeLink: "https://github.com/yasmine/ecommerce-dashboard",
+      featured: true,
     },
     {
-      title: 'AI-Powered Task Manager',
-      description: 'Smart task management application with AI suggestions and automated scheduling capabilities.',
-      tech: ['Next.js', 'OpenAI API', 'Prisma', 'PostgreSQL'],
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
-      demoLink: 'https://task-manager-demo.example.com',
-      codeLink: 'https://github.com/yasmine/ai-task-manager',
-      featured: true
+      title: "AI-Powered Task Manager",
+      description:
+        "Smart task management application with AI suggestions and automated scheduling capabilities.",
+      tech: ["Next.js", "OpenAI API", "Prisma", "PostgreSQL"],
+      image:
+        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
+      demoLink: "https://task-manager-demo.example.com",
+      codeLink: "https://github.com/yasmine/ai-task-manager",
+      featured: true,
     },
     {
-      title: 'Real-time Collaboration Tool',
-      description: 'Web application for team collaboration with live editing, video calls, and project management features.',
-      tech: ['React', 'Socket.io', 'WebRTC', 'Redis'],
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=300&fit=crop',
-      demoLink: 'https://collab-tool-demo.example.com',
-      codeLink: 'https://github.com/yasmine/collaboration-tool',
-      featured: false
+      title: "Real-time Collaboration Tool",
+      description:
+        "Web application for team collaboration with live editing, video calls, and project management features.",
+      tech: ["React", "Socket.io", "WebRTC", "Redis"],
+      image:
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=300&fit=crop",
+      demoLink: "https://collab-tool-demo.example.com",
+      codeLink: "https://github.com/yasmine/collaboration-tool",
+      featured: false,
     },
     {
-      title: 'Fitness Tracking Mobile App',
-      description: 'Cross-platform mobile app for fitness tracking with social features and workout recommendations.',
-      tech: ['React Native', 'Firebase', 'Redux', 'Expo'],
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop',
-      demoLink: 'https://fitness-app-demo.example.com',
-      codeLink: 'https://github.com/yasmine/fitness-tracker',
-      featured: false
-    }
+      title: "Fitness Tracking Mobile App",
+      description:
+        "Cross-platform mobile app for fitness tracking with social features and workout recommendations.",
+      tech: ["React Native", "Firebase", "Redux", "Expo"],
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
+      demoLink: "https://fitness-app-demo.example.com",
+      codeLink: "https://github.com/yasmine/fitness-tracker",
+      featured: false,
+    },
   ];
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
-
-
       {/* Navigation */}
       <motion.nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/70 backdrop-blur-xl shadow-2xl border-b border-border/20' : 'bg-transparent'
+          isScrolled
+            ? "bg-background/70 backdrop-blur-xl shadow-2xl border-b border-border/20"
+            : "bg-transparent"
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -240,22 +286,24 @@ const Portfolio = () => {
             >
               YB
             </motion.div>
-            
+
             <div className="hidden md:flex space-x-8">
               {[
-                { id: 'home', label: 'Home' },
-                { id: 'about', label: 'About' },
-                { id: 'experience', label: 'Experience' },
-                { id: 'skills', label: 'Skills' },
-                { id: 'projects', label: 'Projects' },
-                { id: 'certifications', label: 'Certifications' },
-                { id: 'contact', label: 'Contact' }
+                { id: "home", label: "Home" },
+                { id: "about", label: "About" },
+                { id: "experience", label: "Experience" },
+                { id: "skills", label: "Skills" },
+                { id: "projects", label: "Projects" },
+                { id: "certifications", label: "Certifications" },
+                { id: "contact", label: "Contact" },
               ].map((item) => (
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`relative transition-colors hover:text-primary ${
-                    activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
+                    activeSection === item.id
+                      ? "text-primary"
+                      : "text-muted-foreground"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -283,8 +331,11 @@ const Portfolio = () => {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative">
-        <motion.div 
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center relative"
+      >
+        <motion.div
           className="container mx-auto px-6 py-20"
           variants={staggerContainer}
           initial="initial"
@@ -297,27 +348,27 @@ const Portfolio = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                <Badge variant="outline" className="mb-4 text-primary border-primary/50">
+                <Badge
+                  variant="outline"
+                  className="mb-4 text-primary border-primary/50"
+                >
                   <Star className="mr-2 h-3 w-3" />
                   Available for freelance
                 </Badge>
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 className="text-5xl lg:text-7xl font-bold leading-tight"
                 variants={fadeInUp}
               >
-                Hi, I'm{' '}
-                <span className="text-primary">
-                  Yasmine
-                </span>
+                Hi, I'm <span className="text-primary">Yasmine</span>
               </motion.h1>
-              
+
               <motion.div variants={fadeInUp}>
                 <h2 className="text-2xl lg:text-4xl text-muted-foreground mb-4">
                   Frontend Developer
                 </h2>
-                <motion.div 
+                <motion.div
                   className="flex items-center space-x-2 text-muted-foreground"
                   variants={fadeInUp}
                 >
@@ -325,19 +376,17 @@ const Portfolio = () => {
                   <span>Based in Tunisia</span>
                 </motion.div>
               </motion.div>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-lg text-muted-foreground max-w-2xl leading-relaxed"
                 variants={fadeInUp}
               >
-                Passionate about creating modern, intuitive web experiences. I transform ideas 
-                into innovative digital applications with clean code and beautiful design.
+                Passionate about creating modern, intuitive web experiences. I
+                transform ideas into innovative digital applications with clean
+                code and beautiful design.
               </motion.p>
-              
-              <motion.div
-                className="flex flex-wrap gap-4"
-                variants={fadeInUp}
-              >
+
+              <motion.div className="flex flex-wrap gap-4" variants={fadeInUp}>
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
                   <Mail className="mr-2 h-4 w-4" />
                   Get In Touch
@@ -347,21 +396,26 @@ const Portfolio = () => {
                   Download CV
                 </Button>
               </motion.div>
-              
-              <motion.div 
-                className="flex space-x-4 pt-4"
-                variants={fadeInUp}
-              >
-                <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
+
+              <motion.div className="flex space-x-4 pt-4" variants={fadeInUp}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:text-primary hover:scale-110 transition-all"
+                >
                   <Github className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:text-primary hover:scale-110 transition-all"
+                >
                   <Linkedin className="h-5 w-5" />
                 </Button>
               </motion.div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="flex justify-center lg:justify-end"
               variants={fadeInUp}
             >
@@ -374,13 +428,18 @@ const Portfolio = () => {
                   className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-slate-600/30 rounded-full blur-2xl"
                   animate={{
                     scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.5, 0.3]
+                    opacity: [0.3, 0.5, 0.3],
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 />
                 <Avatar className="w-80 h-80 border-4 border-primary/20 relative z-10 shadow-lg">
-                  <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" alt="Yasmine" />
-                  <AvatarFallback className="text-6xl bg-primary text-white">YB</AvatarFallback>
+                  <AvatarImage
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face"
+                    alt="Yasmine"
+                  />
+                  <AvatarFallback className="text-6xl bg-primary text-white">
+                    YB
+                  </AvatarFallback>
                 </Avatar>
 
                 {/* Floating elements */}
@@ -406,7 +465,7 @@ const Portfolio = () => {
 
       {/* About Section */}
       <section id="about" className="py-20 bg-muted/30">
-        <motion.div 
+        <motion.div
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -429,7 +488,7 @@ const Portfolio = () => {
               viewport={{ once: true }}
             />
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto">
             <motion.div
               className="text-center mb-12"
@@ -439,7 +498,12 @@ const Portfolio = () => {
               viewport={{ once: true }}
             >
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                I am a Full Stack AI Developer and Data Scientist, experienced in machine learning, deep learning, computer vision, and AI system deployment. I build end-to-end intelligent solutions, from model training to API integration and frontend deployment. Passionate about innovation, I combine strong analytical skills with software engineering to deliver impactful AI products.
+                I am a Full Stack AI Developer and Data Scientist, experienced
+                in machine learning, deep learning, computer vision, and AI
+                system deployment. I build end-to-end intelligent solutions,
+                from model training to API integration and frontend deployment.
+                Passionate about innovation, I combine strong analytical skills
+                with software engineering to deliver impactful AI products.
               </p>
             </motion.div>
 
@@ -447,28 +511,32 @@ const Portfolio = () => {
               {[
                 {
                   title: "Full Stack JS Developer",
-                  description: "End-to-end web application development using modern JavaScript technologies.",
+                  description:
+                    "End-to-end web application development using modern JavaScript technologies.",
                   icon: "💻",
-                  gradient: "from-blue-500 to-cyan-500"
+                  gradient: "from-blue-500 to-cyan-500",
                 },
                 {
                   title: "Frontend Developer",
-                  description: "Creating responsive and interactive user interfaces with React.js and Next.js.",
+                  description:
+                    "Creating responsive and interactive user interfaces with React.js and Next.js.",
                   icon: "🎨",
-                  gradient: "from-purple-500 to-pink-500"
+                  gradient: "from-purple-500 to-pink-500",
                 },
                 {
                   title: "Backend Developer",
-                  description: "Building robust server-side applications with Node.js, Express, and databases.",
+                  description:
+                    "Building robust server-side applications with Node.js, Express, and databases.",
                   icon: "⚙️",
-                  gradient: "from-green-500 to-teal-500"
+                  gradient: "from-green-500 to-teal-500",
                 },
                 {
                   title: "React Native Developer",
-                  description: "Cross-platform mobile app development for iOS and Android.",
+                  description:
+                    "Cross-platform mobile app development for iOS and Android.",
                   icon: "📱",
-                  gradient: "from-orange-500 to-red-500"
-                }
+                  gradient: "from-orange-500 to-red-500",
+                },
               ].map((role, index) => (
                 <motion.div
                   key={role.title}
@@ -484,7 +552,9 @@ const Portfolio = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     {/* Background Gradient Glow */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
+                    />
 
                     {/* Icon Container */}
                     <motion.div
@@ -501,7 +571,7 @@ const Portfolio = () => {
                           transition={{
                             duration: 6,
                             repeat: Infinity,
-                            delay: index * 0.5
+                            delay: index * 0.5,
                           }}
                         >
                           <div className="w-full h-full bg-white/95 rounded-lg flex items-center justify-center text-3xl group-hover:text-4xl transition-all duration-300">
@@ -514,24 +584,24 @@ const Portfolio = () => {
                           className={`absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r ${role.gradient} rounded-full opacity-60 group-hover:opacity-100`}
                           animate={{
                             scale: [1, 1.3, 1],
-                            opacity: [0.6, 1, 0.6]
+                            opacity: [0.6, 1, 0.6],
                           }}
                           transition={{
                             duration: 2,
                             repeat: Infinity,
-                            delay: index * 0.3
+                            delay: index * 0.3,
                           }}
                         />
                         <motion.div
                           className={`absolute -bottom-1 -left-1 w-2 h-2 bg-gradient-to-r ${role.gradient} rounded-full opacity-40 group-hover:opacity-80`}
                           animate={{
                             scale: [1, 1.5, 1],
-                            opacity: [0.4, 0.8, 0.4]
+                            opacity: [0.4, 0.8, 0.4],
                           }}
                           transition={{
                             duration: 3,
                             repeat: Infinity,
-                            delay: index * 0.4
+                            delay: index * 0.4,
                           }}
                         />
                       </div>
@@ -565,7 +635,9 @@ const Portfolio = () => {
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-lg font-semibold text-center mb-4">Contact Information</h3>
+              <h3 className="text-lg font-semibold text-center mb-4">
+                Contact Information
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div className="flex items-center justify-center space-x-2">
                   <div className="p-2 bg-blue-100 rounded-lg">
@@ -577,13 +649,17 @@ const Portfolio = () => {
                   <div className="p-2 bg-blue-100 rounded-lg">
                     <Mail className="h-4 w-4 text-blue-600" />
                   </div>
-                  <span className="text-sm text-muted-foreground">yboukraiem@gmail.com</span>
+                  <span className="text-sm text-muted-foreground">
+                    yboukraiem@gmail.com
+                  </span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <div className="p-2 bg-blue-100 rounded-lg">
                     <Phone className="h-4 w-4 text-blue-600" />
                   </div>
-                  <span className="text-sm text-muted-foreground">+216 55876375</span>
+                  <span className="text-sm text-muted-foreground">
+                    +216 55876375
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -593,7 +669,7 @@ const Portfolio = () => {
 
       {/* Experience Section */}
       <section id="experience" className="py-20">
-        <motion.div 
+        <motion.div
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -623,11 +699,11 @@ const Portfolio = () => {
               <motion.div
                 className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-slate-600"
                 initial={{ height: 0 }}
-                whileInView={{ height: '100%' }}
+                whileInView={{ height: "100%" }}
                 transition={{ duration: 2 }}
                 viewport={{ once: true }}
               />
-              
+
               <div className="space-y-12">
                 {experiences.map((exp, index) => (
                   <motion.div
@@ -639,7 +715,7 @@ const Portfolio = () => {
                     viewport={{ once: true }}
                   >
                     {/* Timeline dot */}
-                    <motion.div 
+                    <motion.div
                       className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center shadow-lg"
                       whileHover={{ scale: 1.1 }}
                       initial={{ scale: 0 }}
@@ -649,9 +725,9 @@ const Portfolio = () => {
                     >
                       <Building className="h-8 w-8 text-white" />
                     </motion.div>
-                    
+
                     {/* Experience card */}
-                    <motion.div 
+                    <motion.div
                       className="flex-1"
                       whileHover={{ y: -5 }}
                       transition={{ type: "spring", stiffness: 300 }}
@@ -660,14 +736,18 @@ const Portfolio = () => {
                         <CardHeader>
                           <div className="flex items-start justify-between">
                             <div>
-                              <CardTitle className="text-xl text-primary">{exp.title}</CardTitle>
+                              <CardTitle className="text-xl text-primary">
+                                {exp.title}
+                              </CardTitle>
                               <CardDescription className="text-lg font-semibold text-foreground mt-1">
                                 {exp.company}
                               </CardDescription>
                               <div className="flex items-center space-x-4 mt-2 text-muted-foreground">
                                 <div className="flex items-center space-x-1">
                                   <MapPin className="h-4 w-4" />
-                                  <span className="text-sm">{exp.location}</span>
+                                  <span className="text-sm">
+                                    {exp.location}
+                                  </span>
                                 </div>
                                 <div className="flex items-center space-x-1">
                                   <Calendar className="h-4 w-4" />
@@ -675,19 +755,26 @@ const Portfolio = () => {
                                 </div>
                               </div>
                             </div>
-                            <Badge variant="outline" className="text-primary border-primary/50">
+                            <Badge
+                              variant="outline"
+                              className="text-primary border-primary/50"
+                            >
                               Current
                             </Badge>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-muted-foreground mb-4">{exp.description}</p>
-                          
+                          <p className="text-muted-foreground mb-4">
+                            {exp.description}
+                          </p>
+
                           <div className="space-y-3 mb-4">
-                            <h4 className="font-semibold text-sm">Key Achievements:</h4>
+                            <h4 className="font-semibold text-sm">
+                              Key Achievements:
+                            </h4>
                             <ul className="space-y-2">
                               {exp.achievements.map((achievement, i) => (
-                                <motion.li 
+                                <motion.li
                                   key={i}
                                   className="flex items-start space-x-2 text-sm text-muted-foreground"
                                   initial={{ opacity: 0, x: -20 }}
@@ -701,10 +788,14 @@ const Portfolio = () => {
                               ))}
                             </ul>
                           </div>
-                          
+
                           <div className="flex flex-wrap gap-2">
                             {exp.technologies.map((tech) => (
-                              <Badge key={tech} variant="secondary" className="text-xs">
+                              <Badge
+                                key={tech}
+                                variant="secondary"
+                                className="text-xs"
+                              >
                                 {tech}
                               </Badge>
                             ))}
@@ -751,28 +842,82 @@ const Portfolio = () => {
               {[
                 {
                   category: "Frontend Development",
-                  technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "Vue.js", "Angular", "SCSS"]
+                  technologies: [
+                    "React",
+                    "Next.js",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "JavaScript",
+                    "Vue.js",
+                    "Angular",
+                    "SCSS",
+                  ],
                 },
                 {
                   category: "Backend Development",
-                  technologies: ["Node.js", "Express", "Python", "GraphQL", "REST APIs", "FastAPI", "Django", "PHP"]
+                  technologies: [
+                    "Node.js",
+                    "Express",
+                    "Python",
+                    "GraphQL",
+                    "REST APIs",
+                    "FastAPI",
+                    "Django",
+                    "PHP",
+                  ],
                 },
                 {
                   category: "Database & Cloud",
-                  technologies: ["MongoDB", "PostgreSQL", "AWS", "Firebase", "MySQL", "Redis", "Google Cloud", "Azure"]
+                  technologies: [
+                    "MongoDB",
+                    "PostgreSQL",
+                    "AWS",
+                    "Firebase",
+                    "MySQL",
+                    "Redis",
+                    "Google Cloud",
+                    "Azure",
+                  ],
                 },
                 {
                   category: "Tools & Workflow",
-                  technologies: ["Git", "Docker", "Figma", "VS Code", "Webpack", "Vite", "Jenkins", "GitHub Actions"]
+                  technologies: [
+                    "Git",
+                    "Docker",
+                    "Figma",
+                    "VS Code",
+                    "Webpack",
+                    "Vite",
+                    "Jenkins",
+                    "GitHub Actions",
+                  ],
                 },
                 {
                   category: "Computer Vision",
-                  technologies: ["OpenCV", "TensorFlow", "PyTorch", "YOLO", "Scikit-learn", "Numpy", "Matplotlib", "Pandas"]
+                  technologies: [
+                    "OpenCV",
+                    "TensorFlow",
+                    "PyTorch",
+                    "YOLO",
+                    "Scikit-learn",
+                    "Numpy",
+                    "Matplotlib",
+                    "Pandas",
+                  ],
                 },
                 {
                   category: "Advanced Databases",
-                  technologies: ["Redis", "Elasticsearch", "Neo4j", "Apache Kafka", "InfluxDB", "Cassandra", "DynamoDB", "CouchDB"]
-                }
+                  technologies: [
+                    "Redis",
+                    "Elasticsearch",
+                    "Neo4j",
+                    "Apache Kafka",
+                    "InfluxDB",
+                    "Cassandra",
+                    "DynamoDB",
+                    "CouchDB",
+                  ],
+                },
               ].map((section, sectionIndex) => (
                 <motion.div
                   key={section.category}
@@ -792,7 +937,9 @@ const Portfolio = () => {
                         className="flex items-center space-x-2"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: sectionIndex * 0.1 + techIndex * 0.05 }}
+                        transition={{
+                          delay: sectionIndex * 0.1 + techIndex * 0.05,
+                        }}
                         viewport={{ once: true }}
                       >
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0" />
@@ -825,9 +972,11 @@ const Portfolio = () => {
           >
             <h2 className="text-4xl font-bold mb-6">Projects</h2>
             <p className="text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Following projects showcase my skills and experience through real-world examples of my work.
-              Each project is briefly described with links to code repositories and live demos. It reflects my
-              ability to solve complex problems, work with different technologies, and manage projects effectively.
+              Following projects showcase my skills and experience through
+              real-world examples of my work. Each project is briefly described
+              with links to code repositories and live demos. It reflects my
+              ability to solve complex problems, work with different
+              technologies, and manage projects effectively.
             </p>
           </motion.div>
 
@@ -835,88 +984,104 @@ const Portfolio = () => {
             {[
               {
                 title: "E-Commerce Website",
-                description: "Complete e-commerce platform with admin dashboard, payment system, and product management. Features secure authentication and advanced search functionality.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+                description:
+                  "Complete e-commerce platform with admin dashboard, payment system, and product management. Features secure authentication and advanced search functionality.",
+                image:
+                  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
                 tech: ["React", "Node.js", "Express", "MongoDB", "Redux"],
                 codeLink: "https://github.com/yasmine/ecommerce-website",
-                demoLink: "https://ecommerce-demo.example.com"
+                demoLink: "https://ecommerce-demo.example.com",
               },
               {
                 title: "Project Management Website (TeamSpace)",
-                description: "Team-inspired task management application with real-time collaboration features, customizable workspaces and team tracking functionality.",
-                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
+                description:
+                  "Team-inspired task management application with real-time collaboration features, customizable workspaces and team tracking functionality.",
+                image:
+                  "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
                 tech: ["React", "Node.js", "MongoDB", "Express", "WebSocket"],
                 codeLink: "https://github.com/yasmine/teamspace",
-                demoLink: "https://teamspace-demo.example.com"
+                demoLink: "https://teamspace-demo.example.com",
               },
               {
                 title: "Social Media Website (SocialWave)",
-                description: "Complete social network with posts, comments, and messaging features. Includes user following functionality and content moderation tools.",
-                image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=400&h=250&fit=crop",
+                description:
+                  "Complete social network with posts, comments, and messaging features. Includes user following functionality and content moderation tools.",
+                image:
+                  "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=400&h=250&fit=crop",
                 tech: ["React", "JWT", "Node.js", "Socket.io", "MongoDB"],
                 codeLink: "https://github.com/yasmine/socialwave",
-                demoLink: "https://socialwave-demo.example.com"
-              }
-            ].slice(0, showAllProjects ? undefined : 3).map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-border/30 bg-card/80 backdrop-blur-sm">
-                  {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  <CardContent className="p-6">
-                    <h3 className="font-bold text-lg mb-3 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs px-2 py-1">
-                          {tech}
-                        </Badge>
-                      ))}
+                demoLink: "https://socialwave-demo.example.com",
+              },
+            ]
+              .slice(0, showAllProjects ? undefined : 3)
+              .map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-border/30 bg-card/80 backdrop-blur-sm">
+                    {/* Project Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="flex space-x-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="flex-1 text-xs"
-                        onClick={() => window.open(project.codeLink, '_blank')}
-                      >
-                        <Github className="h-3 w-3 mr-1" />
-                        Code
-                      </Button>
-                      <Button
-                        size="sm"
-                        className="flex-1 text-xs"
-                        onClick={() => window.open(project.demoLink, '_blank')}
-                      >
-                        <ExternalLink className="h-3 w-3 mr-1" />
-                        Demo
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    <CardContent className="p-6">
+                      <h3 className="font-bold text-lg mb-3 group-hover:text-blue-600 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack */}
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {project.tech.map((tech) => (
+                          <Badge
+                            key={tech}
+                            variant="secondary"
+                            className="text-xs px-2 py-1"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex space-x-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="flex-1 text-xs"
+                          onClick={() =>
+                            window.open(project.codeLink, "_blank")
+                          }
+                        >
+                          <Github className="h-3 w-3 mr-1" />
+                          Code
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="flex-1 text-xs"
+                          onClick={() =>
+                            window.open(project.demoLink, "_blank")
+                          }
+                        >
+                          <ExternalLink className="h-3 w-3 mr-1" />
+                          Demo
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
           </div>
 
           {/* Show More Button */}
@@ -932,8 +1097,10 @@ const Portfolio = () => {
               className="group"
               onClick={() => setShowAllProjects(!showAllProjects)}
             >
-              {showAllProjects ? 'Show Less' : 'Show More'}
-              <ChevronRight className={`h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform ${showAllProjects ? 'rotate-90' : ''}`} />
+              {showAllProjects ? "Show Less" : "Show More"}
+              <ChevronRight
+                className={`h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform ${showAllProjects ? "rotate-90" : ""}`}
+              />
             </Button>
           </motion.div>
         </motion.div>
@@ -966,15 +1133,17 @@ const Portfolio = () => {
               {
                 title: "The Full Stack JavaScript Bootcamp Graduate",
                 issuer: "GOMYCODE",
-                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop",
-                logo: "🚀"
+                image:
+                  "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop",
+                logo: "🚀",
               },
               {
                 title: "React Professional Certificate",
                 issuer: "Meta",
-                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop",
-                logo: "⚛️"
-              }
+                image:
+                  "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop",
+                logo: "⚛️",
+              },
             ].map((cert, index) => (
               <motion.div
                 key={cert.title}
@@ -1003,7 +1172,9 @@ const Portfolio = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-sm">{cert.issuer}</h4>
-                        <p className="text-xs text-muted-foreground">{cert.title}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {cert.title}
+                        </p>
                       </div>
                     </div>
 
@@ -1012,7 +1183,7 @@ const Portfolio = () => {
                       variant="outline"
                       size="sm"
                       className="w-full group/btn"
-                      onClick={() => window.open('#', '_blank')}
+                      onClick={() => window.open("#", "_blank")}
                     >
                       <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:animate-bounce" />
                       View Certificate
@@ -1022,21 +1193,19 @@ const Portfolio = () => {
               </motion.div>
             ))}
           </div>
-
-
         </motion.div>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-muted/30">
-        <motion.div 
+        <motion.div
           className="container mx-auto px-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={fadeInUp}
             initial="initial"
@@ -1044,7 +1213,7 @@ const Portfolio = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
-            <motion.div 
+            <motion.div
               className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
@@ -1052,10 +1221,11 @@ const Portfolio = () => {
               viewport={{ once: true }}
             />
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? Let's discuss how we can bring your ideas to life!
+              Have a project in mind? Let's discuss how we can bring your ideas
+              to life!
             </p>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
             <motion.div
               variants={fadeInUp}
@@ -1073,7 +1243,9 @@ const Portfolio = () => {
                     </div>
                     <div>
                       <p className="font-semibold">Email</p>
-                      <p className="text-muted-foreground">yasmine@example.com</p>
+                      <p className="text-muted-foreground">
+                        yasmine@example.com
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -1091,7 +1263,9 @@ const Portfolio = () => {
                     </div>
                     <div>
                       <p className="font-semibold">Let's Chat</p>
-                      <p className="text-muted-foreground">Available for coffee chats</p>
+                      <p className="text-muted-foreground">
+                        Available for coffee chats
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1109,31 +1283,51 @@ const Portfolio = () => {
                 <form className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">First Name</label>
+                      <label className="text-sm font-medium mb-2 block">
+                        First Name
+                      </label>
                       <Input placeholder="John" className="bg-background/50" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Last Name</label>
+                      <label className="text-sm font-medium mb-2 block">
+                        Last Name
+                      </label>
                       <Input placeholder="Doe" className="bg-background/50" />
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Email</label>
-                    <Input type="email" placeholder="john@example.com" className="bg-background/50" />
+                    <label className="text-sm font-medium mb-2 block">
+                      Email
+                    </label>
+                    <Input
+                      type="email"
+                      placeholder="john@example.com"
+                      className="bg-background/50"
+                    />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Subject</label>
-                    <Input placeholder="Project Discussion" className="bg-background/50" />
+                    <label className="text-sm font-medium mb-2 block">
+                      Subject
+                    </label>
+                    <Input
+                      placeholder="Project Discussion"
+                      className="bg-background/50"
+                    />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Message</label>
-                    <Textarea 
-                      placeholder="Tell me about your project..." 
+                    <label className="text-sm font-medium mb-2 block">
+                      Message
+                    </label>
+                    <Textarea
+                      placeholder="Tell me about your project..."
                       rows={5}
                       className="bg-background/50"
                     />
                   </div>
-                  <Button size="lg" className="w-full group shadow-lg hover:shadow-xl transition-all">
+                  <Button
+                    size="lg"
+                    className="w-full group shadow-lg hover:shadow-xl transition-all"
+                  >
                     <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
                     Send Message
                   </Button>
@@ -1154,10 +1348,18 @@ const Portfolio = () => {
               </p>
             </div>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="hover:text-primary hover:scale-110 transition-all"
+              >
                 <Github className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="hover:text-primary hover:scale-110 transition-all">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="hover:text-primary hover:scale-110 transition-all"
+              >
                 <Linkedin className="h-5 w-5" />
               </Button>
             </div>
@@ -1168,7 +1370,9 @@ const Portfolio = () => {
       {/* Floating Scroll to Top Button */}
       <motion.button
         className={`fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 ${
-          isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+          isScrolled
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-4 pointer-events-none"
         }`}
         onClick={scrollToTop}
         whileHover={{ scale: 1.1 }}
@@ -1176,7 +1380,7 @@ const Portfolio = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{
           opacity: isScrolled ? 1 : 0,
-          y: isScrolled ? 0 : 20
+          y: isScrolled ? 0 : 20,
         }}
         transition={{ duration: 0.3 }}
       >
