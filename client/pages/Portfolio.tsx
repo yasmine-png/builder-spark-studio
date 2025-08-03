@@ -439,10 +439,7 @@ const Portfolio = () => {
               viewport={{ once: true }}
             >
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in
-                frameworks like React.js, Node.js, Node.js, Next.js, and Three.js. I'm a quick learner and
-                collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve
-                real-world problems. Let's work together to bring your ideas to life!
+                I am a Full Stack AI Developer and Data Scientist, experienced in machine learning, deep learning, computer vision, and AI system deployment. I build end-to-end intelligent solutions, from model training to API integration and frontend deployment. Passionate about innovation, I combine strong analytical skills with software engineering to deliver impactful AI products.
               </p>
             </motion.div>
 
