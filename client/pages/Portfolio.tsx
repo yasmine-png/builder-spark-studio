@@ -477,35 +477,50 @@ const Portfolio = () => {
               whileInView="animate"
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Technologies I Use</h3>
-              
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold mb-8 text-center">Technologies I Use</h3>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {[
-                  { name: 'Frontend Development', techs: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
-                  { name: 'Backend Development', techs: ['Node.js', 'Express', 'Python', 'GraphQL'] },
-                  { name: 'Database & Cloud', techs: ['MongoDB', 'PostgreSQL', 'AWS', 'Firebase'] },
-                  { name: 'Tools & Workflow', techs: ['Git', 'Docker', 'Figma', 'VS Code'] }
-                ].map((category, categoryIndex) => (
+                  { name: 'React', icon: '⚛️', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
+                  { name: 'Next.js', icon: '▲', color: 'bg-gray-50 border-gray-200 hover:bg-gray-100' },
+                  { name: 'TypeScript', icon: '🔷', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
+                  { name: 'Node.js', icon: '🟢', color: 'bg-green-50 border-green-200 hover:bg-green-100' },
+                  { name: 'Python', icon: '🐍', color: 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100' },
+                  { name: 'MongoDB', icon: '🍃', color: 'bg-green-50 border-green-200 hover:bg-green-100' },
+                  { name: 'PostgreSQL', icon: '🐘', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
+                  { name: 'AWS', icon: '☁️', color: 'bg-orange-50 border-orange-200 hover:bg-orange-100' },
+                  { name: 'Docker', icon: '🐳', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
+                  { name: 'Git', icon: '🐙', color: 'bg-red-50 border-red-200 hover:bg-red-100' },
+                  { name: 'Figma', icon: '🎨', color: 'bg-purple-50 border-purple-200 hover:bg-purple-100' },
+                  { name: 'VS Code', icon: '💻', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' }
+                ].map((tech, index) => (
                   <motion.div
-                    key={category.name}
-                    className="p-4 rounded-lg bg-background/50 backdrop-blur-sm"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: categoryIndex * 0.1 }}
+                    key={tech.name}
+                    className={`group p-4 rounded-xl border-2 ${tech.color} transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
                     viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
                   >
-                    <h4 className="font-semibold text-primary mb-3">{category.name}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {category.techs.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
+                    <div className="text-center">
+                      <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-200">
+                        {tech.icon}
+                      </div>
+                      <h4 className="font-medium text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
+                        {tech.name}
+                      </h4>
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              <div className="text-center mt-8">
+                <p className="text-sm text-muted-foreground">
+                  And many more tools in my toolkit...
+                </p>
               </div>
             </motion.div>
           </div>
