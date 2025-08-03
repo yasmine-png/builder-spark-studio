@@ -422,7 +422,7 @@ const Portfolio = () => {
           >
             <h2 className="text-4xl font-bold mb-4">About Me</h2>
             <motion.div
-              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"
+              className="w-20 h-1 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -530,7 +530,7 @@ const Portfolio = () => {
           >
             <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
             <motion.div
-              className="w-20 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"
+              className="w-20 h-1 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
               transition={{ duration: 1, delay: 0.5 }}
