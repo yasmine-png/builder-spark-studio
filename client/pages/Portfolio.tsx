@@ -430,99 +430,66 @@ const Portfolio = () => {
             />
           </motion.div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl mx-auto">
             <motion.div
+              className="text-center mb-12"
               variants={fadeInUp}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Passionate developer with 3+ years of experience crafting modern web applications. 
-                I specialize in frontend technologies and love solving complex problems with elegant solutions.
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in
+                frameworks like React.js, Node.js, Node.js, Next.js, and Three.js. I'm a quick learner and
+                collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve
+                real-world problems. Let's work together to bring your ideas to life!
               </p>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                My approach combines creativity and technical expertise to deliver exceptional user experiences. 
-                I'm always seeking new challenges and learning opportunities.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 mt-8">
-                {[
-                  { number: '3+', label: 'Years Experience', icon: Clock },
-                  { number: '20+', label: 'Projects Completed', icon: Briefcase },
-                  { number: '100%', label: 'Client Satisfaction', icon: Heart },
-                  { number: '24/7', label: 'Support Available', icon: Users }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="text-center p-4 rounded-lg bg-background/50 backdrop-blur-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <stat.icon className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <h4 className="font-bold text-2xl text-primary mb-1">{stat.number}</h4>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
-            
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="space-y-8"
-            >
-              <h3 className="text-2xl font-semibold mb-8 text-center">Technologies I Use</h3>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {[
-                  { name: 'React', icon: '⚛️', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
-                  { name: 'Next.js', icon: '▲', color: 'bg-gray-50 border-gray-200 hover:bg-gray-100' },
-                  { name: 'TypeScript', icon: '🔷', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
-                  { name: 'Node.js', icon: '🟢', color: 'bg-green-50 border-green-200 hover:bg-green-100' },
-                  { name: 'Python', icon: '🐍', color: 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100' },
-                  { name: 'MongoDB', icon: '🍃', color: 'bg-green-50 border-green-200 hover:bg-green-100' },
-                  { name: 'PostgreSQL', icon: '🐘', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
-                  { name: 'AWS', icon: '☁️', color: 'bg-orange-50 border-orange-200 hover:bg-orange-100' },
-                  { name: 'Docker', icon: '🐳', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' },
-                  { name: 'Git', icon: '🐙', color: 'bg-red-50 border-red-200 hover:bg-red-100' },
-                  { name: 'Figma', icon: '🎨', color: 'bg-purple-50 border-purple-200 hover:bg-purple-100' },
-                  { name: 'VS Code', icon: '💻', color: 'bg-blue-50 border-blue-200 hover:bg-blue-100' }
-                ].map((tech, index) => (
-                  <motion.div
-                    key={tech.name}
-                    className={`group p-4 rounded-xl border-2 ${tech.color} transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -5 }}
-                  >
-                    <div className="text-center">
-                      <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-200">
-                        {tech.icon}
-                      </div>
-                      <h4 className="font-medium text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
-                        {tech.name}
-                      </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Full Stack JS Developer",
+                  description: "End-to-end web application development using modern JavaScript technologies.",
+                  icon: Monitor
+                },
+                {
+                  title: "Frontend Developer",
+                  description: "Creating responsive and interactive user interfaces with React.js and Next.js.",
+                  icon: Palette
+                },
+                {
+                  title: "Backend Developer",
+                  description: "Building robust server-side applications with Node.js, Express, and databases.",
+                  icon: Server
+                },
+                {
+                  title: "React Native Developer",
+                  description: "Cross-platform mobile app development for iOS and Android.",
+                  icon: Smartphone
+                }
+              ].map((role, index) => (
+                <motion.div
+                  key={role.title}
+                  className="p-6 rounded-lg border border-border/50 bg-card hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <role.icon className="h-6 w-6 text-blue-600" />
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="text-center mt-8">
-                <p className="text-sm text-muted-foreground">
-                  And many more tools in my toolkit...
-                </p>
-              </div>
-            </motion.div>
+                    <h3 className="font-semibold text-sm mb-2">{role.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {role.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </section>
