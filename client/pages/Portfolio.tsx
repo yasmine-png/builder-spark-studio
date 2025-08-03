@@ -443,42 +443,116 @@ const Portfolio = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {[
                 {
-                  title: "Full Stack AI Developer",
-                  description: "End-to-end AI system development, from data preprocessing and model training to API deployment and UI integration.",
-                  icon: Monitor
+                  title: "Full Stack JS Developer",
+                  description: "End-to-end web application development using modern JavaScript technologies.",
+                  icon: "💻",
+                  gradient: "from-blue-500 to-cyan-500"
                 },
                 {
-                  title: "Data Scientist",
-                  description: "Designing and implementing machine learning and deep learning models to extract insights and build intelligent systems.",
-                  icon: Database
+                  title: "Frontend Developer",
+                  description: "Creating responsive and interactive user interfaces with React.js and Next.js.",
+                  icon: "🎨",
+                  gradient: "from-purple-500 to-pink-500"
                 },
                 {
-                  title: "Data Analyst",
-                  description: "Turning data into actionable insights using statistical analysis, data modeling, and visualization — backed by a strong applied mathematics background.",
-                  icon: Palette
+                  title: "Backend Developer",
+                  description: "Building robust server-side applications with Node.js, Express, and databases.",
+                  icon: "⚙️",
+                  gradient: "from-green-500 to-teal-500"
+                },
+                {
+                  title: "React Native Developer",
+                  description: "Cross-platform mobile app development for iOS and Android.",
+                  icon: "📱",
+                  gradient: "from-orange-500 to-red-500"
                 }
               ].map((role, index) => (
                 <motion.div
                   key={role.title}
-                  className="p-6 rounded-lg border border-border/50 bg-card hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="group relative"
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.15, duration: 0.6 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
                 >
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <role.icon className="h-8 w-8 text-blue-600" />
-                    </div>
-                    <h3 className="font-semibold text-lg mb-2">{role.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {role.description}
-                    </p>
-                  </div>
+                  <motion.div
+                    className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/15 transition-all duration-500 group-hover:-translate-y-2"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    {/* Background Gradient Glow */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`} />
+
+                    {/* Icon Container */}
+                    <motion.div
+                      className="relative z-10 text-center"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="relative mx-auto mb-6">
+                        <motion.div
+                          className={`w-20 h-20 mx-auto rounded-xl bg-gradient-to-br ${role.gradient} p-1 shadow-lg group-hover:shadow-2xl transition-shadow duration-500`}
+                          animate={{
+                            rotate: [0, 1, -1, 0],
+                          }}
+                          transition={{
+                            duration: 6,
+                            repeat: Infinity,
+                            delay: index * 0.5
+                          }}
+                        >
+                          <div className="w-full h-full bg-white/95 rounded-lg flex items-center justify-center text-3xl group-hover:text-4xl transition-all duration-300">
+                            {role.icon}
+                          </div>
+                        </motion.div>
+
+                        {/* Floating Particles */}
+                        <motion.div
+                          className={`absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r ${role.gradient} rounded-full opacity-60 group-hover:opacity-100`}
+                          animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0.6, 1, 0.6]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: index * 0.3
+                          }}
+                        />
+                        <motion.div
+                          className={`absolute -bottom-1 -left-1 w-2 h-2 bg-gradient-to-r ${role.gradient} rounded-full opacity-40 group-hover:opacity-80`}
+                          animate={{
+                            scale: [1, 1.5, 1],
+                            opacity: [0.4, 0.8, 0.4]
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            delay: index * 0.4
+                          }}
+                        />
+                      </div>
+
+                      <h3 className="font-bold text-lg mb-3 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
+                        {role.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                        {role.description}
+                      </p>
+                    </motion.div>
+
+                    {/* Bottom Progress Line */}
+                    <motion.div
+                      className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${role.gradient} rounded-full`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "100%" }}
+                      transition={{ delay: index * 0.2 + 0.8, duration: 1 }}
+                      viewport={{ once: true }}
+                    />
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
