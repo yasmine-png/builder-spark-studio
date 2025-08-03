@@ -443,96 +443,41 @@ const Portfolio = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {[
                 {
                   title: "Full Stack AI Developer",
                   description: "End-to-end AI system development, from data preprocessing and model training to API deployment and UI integration.",
-                  image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=200&h=200&fit=crop&crop=center",
-                  gradient: "from-purple-600 to-blue-600",
-                  bgColor: "bg-gradient-to-br from-purple-50 to-blue-50"
+                  icon: Monitor
                 },
                 {
                   title: "Data Scientist",
                   description: "Designing and implementing machine learning and deep learning models to extract insights and build intelligent systems.",
-                  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&crop=center",
-                  gradient: "from-emerald-600 to-teal-600",
-                  bgColor: "bg-gradient-to-br from-emerald-50 to-teal-50"
+                  icon: Database
                 },
                 {
                   title: "Data Analyst",
                   description: "Turning data into actionable insights using statistical analysis, data modeling, and visualization — backed by a strong applied mathematics background.",
-                  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop&crop=center",
-                  gradient: "from-orange-600 to-red-600",
-                  bgColor: "bg-gradient-to-br from-orange-50 to-red-50"
+                  icon: Palette
                 }
               ].map((role, index) => (
                 <motion.div
                   key={role.title}
-                  className={`group relative overflow-hidden rounded-2xl ${role.bgColor} border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2`}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ delay: index * 0.15, duration: 0.6, type: "spring", stiffness: 100 }}
+                  className="p-6 rounded-lg border border-border/50 bg-card hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.03 }}
+                  whileHover={{ scale: 1.02 }}
                 >
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-
-                  {/* Floating Background Elements */}
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700" />
-                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/5 rounded-full blur-lg group-hover:scale-125 transition-transform duration-700" />
-
-                  <div className="relative p-8">
-                    {/* Image Container */}
-                    <div className="relative mb-6">
-                      <motion.div
-                        className="w-20 h-20 mx-auto rounded-2xl overflow-hidden shadow-lg ring-2 ring-white/20 group-hover:ring-white/40 transition-all duration-300"
-                        whileHover={{ rotate: [0, -5, 5, -5, 0] }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <img
-                          src={role.image}
-                          alt={role.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                      </motion.div>
-
-                      {/* Floating Sparkle Effect */}
-                      <motion.div
-                        className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100"
-                        animate={{
-                          scale: [0, 1, 0],
-                          rotate: [0, 180, 360]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: index * 0.3
-                        }}
-                      >
-                        <div className="w-full h-full bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full shadow-lg" />
-                      </motion.div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <role.icon className="h-8 w-8 text-blue-600" />
                     </div>
-
-                    {/* Content */}
-                    <div className="text-center space-y-4">
-                      <h3 className={`font-bold text-lg bg-gradient-to-r ${role.gradient} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300`}>
-                        {role.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                        {role.description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Accent */}
-                    <motion.div
-                      className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${role.gradient} w-0 group-hover:w-full transition-all duration-500`}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
-                      transition={{ delay: index * 0.2 + 0.8, duration: 0.8 }}
-                      viewport={{ once: true }}
-                    />
+                    <h3 className="font-semibold text-lg mb-2">{role.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {role.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
