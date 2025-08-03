@@ -273,9 +273,9 @@ const Portfolio = () => {
 
             <div className="flex items-center space-x-3">
               <ThemeToggle />
-              <Button className="hidden md:flex shadow-md">
+              <Button className="hidden md:flex bg-primary hover:bg-primary/90">
                 <Download className="mr-2 h-4 w-4" />
-                Resume
+                Download CV
               </Button>
             </div>
           </div>
@@ -334,16 +334,16 @@ const Portfolio = () => {
                 into innovative digital applications with clean code and beautiful design.
               </motion.p>
               
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-4"
                 variants={fadeInUp}
               >
-                <Button size="lg" className="group shadow-lg hover:shadow-xl transition-all">
-                  <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  <Mail className="mr-2 h-4 w-4" />
                   Get In Touch
                 </Button>
-                <Button variant="outline" size="lg" className="group">
-                  <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                <Button variant="outline" size="lg">
+                  <Download className="mr-2 h-4 w-4" />
                   Download CV
                 </Button>
               </motion.div>
@@ -378,9 +378,9 @@ const Portfolio = () => {
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 />
-                <Avatar className="w-80 h-80 border-4 border-blue-600/20 relative z-10 shadow-2xl ring-4 ring-background/50">
+                <Avatar className="w-80 h-80 border-4 border-primary/20 relative z-10 shadow-lg">
                   <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" alt="Yasmine" />
-                  <AvatarFallback className="text-6xl bg-gradient-to-br from-blue-600 to-slate-600 text-white">YB</AvatarFallback>
+                  <AvatarFallback className="text-6xl bg-primary text-white">YB</AvatarFallback>
                 </Avatar>
 
                 {/* Floating elements */}
