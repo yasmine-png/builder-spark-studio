@@ -4,7 +4,7 @@ import {
   Mail, Download, Github, Linkedin, ExternalLink, Code,
   Palette, Server, Database, Monitor, Smartphone, Calendar,
   MapPin, Building, Award, ChevronRight, Star, Eye,
-  Heart, MessageCircle, Users, Coffee, Clock, Briefcase, ArrowUp
+  Heart, MessageCircle, Users, Coffee, Clock, Briefcase, ArrowUp, Phone
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
