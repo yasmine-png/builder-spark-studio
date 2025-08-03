@@ -446,7 +446,7 @@ const Portfolio = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {[
                 {
                   title: "Full Stack AI Developer",
@@ -485,6 +485,37 @@ const Portfolio = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Contact Information */}
+            <motion.div
+              className="bg-card/50 border border-border/50 rounded-lg p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-lg font-semibold text-center mb-4">Contact Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <MapPin className="h-4 w-4 text-blue-600" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">Tunisia</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <Mail className="h-4 w-4 text-blue-600" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">yboukraiem@gmail.com</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <MapPin className="h-4 w-4 text-blue-600" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">+216 55876375</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </section>
