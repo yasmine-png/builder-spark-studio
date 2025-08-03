@@ -93,7 +93,7 @@ const Portfolio = () => {
     },
     {
       title: "Tools & Workflow",
-      icon: "🛠️",
+      icon: "���️",
       color: "from-purple-500 to-pink-600",
       technologies: [
         { name: 'Git', icon: '🐙', experience: 'Expert' },
@@ -446,27 +446,22 @@ const Portfolio = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  title: "Full Stack JS Developer",
-                  description: "End-to-end web application development using modern JavaScript technologies.",
+                  title: "Full Stack AI Developer",
+                  description: "End-to-end AI system development, from data preprocessing and model training to API deployment and UI integration.",
                   icon: Monitor
                 },
                 {
-                  title: "Frontend Developer",
-                  description: "Creating responsive and interactive user interfaces with React.js and Next.js.",
+                  title: "Data Scientist",
+                  description: "Designing and implementing machine learning and deep learning models to extract insights and build intelligent systems.",
+                  icon: Database
+                },
+                {
+                  title: "Data Analyst",
+                  description: "Turning data into actionable insights using statistical analysis, data modeling, and visualization — backed by a strong applied mathematics background.",
                   icon: Palette
-                },
-                {
-                  title: "Backend Developer",
-                  description: "Building robust server-side applications with Node.js, Express, and databases.",
-                  icon: Server
-                },
-                {
-                  title: "React Native Developer",
-                  description: "Cross-platform mobile app development for iOS and Android.",
-                  icon: Smartphone
                 }
               ].map((role, index) => (
                 <motion.div
