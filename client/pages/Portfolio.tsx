@@ -18,6 +18,7 @@ import { ThemeToggle } from '@/components/theme-toggle';
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const { scrollYProgress } = useScroll();
   const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
@@ -776,7 +777,7 @@ const Portfolio = () => {
             {[
               {
                 title: "E-Commerce Website",
-                description: "Complete e-commerce platform with admin dashboard, product management, order processing. Features secure authentication and advanced filtering functionality.",
+                description: "Complete e-commerce platform with admin dashboard, payment system, and product management. Features secure authentication and advanced search functionality.",
                 image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
                 tech: ["React", "Node.js", "Express", "MongoDB", "Redux"],
                 codeLink: "https://github.com/yasmine/ecommerce-website",
@@ -792,37 +793,13 @@ const Portfolio = () => {
               },
               {
                 title: "Social Media Website (SocialWave)",
-                description: "Complete social network with posts, comments, and messaging features. Includes real-time notifications following functionality and content moderation tools.",
+                description: "Complete social network with posts, comments, and messaging features. Includes user following functionality and content moderation tools.",
                 image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=400&h=250&fit=crop",
                 tech: ["React", "JWT", "Node.js", "Socket.io", "MongoDB"],
                 codeLink: "https://github.com/yasmine/socialwave",
                 demoLink: "https://socialwave-demo.example.com"
-              },
-              {
-                title: "Task Management App",
-                description: "Productivity-focused task manager with drag-and-drop functionality, deadline tracking, and team collaboration features.",
-                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
-                tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-                codeLink: "https://github.com/yasmine/task-manager",
-                demoLink: "https://task-manager-demo.example.com"
-              },
-              {
-                title: "Weather App",
-                description: "Real-time weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-                image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop",
-                tech: ["React", "API", "Chart.js", "CSS3"],
-                codeLink: "https://github.com/yasmine/weather-app",
-                demoLink: "https://weather-app-demo.example.com"
-              },
-              {
-                title: "Transform Your Business",
-                description: "Modern business landing page with responsive design, contact forms, and service showcase functionality.",
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
-                tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-                codeLink: "https://github.com/yasmine/business-landing",
-                demoLink: "https://business-landing-demo.example.com"
               }
-            ].map((project, index) => (
+            ].slice(0, showAllProjects ? undefined : 3).map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -892,9 +869,13 @@ const Portfolio = () => {
             transition={{ delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <Button variant="outline" className="group">
-              Show More
-              <ChevronRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button
+              variant="outline"
+              className="group"
+              onClick={() => setShowAllProjects(!showAllProjects)}
+            >
+              {showAllProjects ? 'Show Less' : 'Show More'}
+              <ChevronRight className={`h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform ${showAllProjects ? 'rotate-90' : ''}`} />
             </Button>
           </motion.div>
         </motion.div>
