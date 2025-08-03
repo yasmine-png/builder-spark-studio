@@ -4,7 +4,7 @@ import {
   Mail, Download, Github, Linkedin, ExternalLink, Code,
   Palette, Server, Database, Monitor, Smartphone, Calendar,
   MapPin, Building, Award, ChevronRight, Star, Eye,
-  Heart, MessageCircle, Users, Coffee, Clock, Briefcase
+  Heart, MessageCircle, Users, Coffee, Clock, Briefcase, ArrowUp
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -212,6 +212,10 @@ const Portfolio = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -768,7 +772,7 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
               {
                 title: "E-Commerce Website",
@@ -879,6 +883,20 @@ const Portfolio = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Show More Button */}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Button variant="outline" className="group">
+              Show More
+              <ChevronRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -1107,6 +1125,24 @@ const Portfolio = () => {
           </div>
         </div>
       </footer>
+
+      {/* Floating Scroll to Top Button */}
+      <motion.button
+        className={`fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 ${
+          isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        onClick={scrollToTop}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: isScrolled ? 1 : 0,
+          y: isScrolled ? 0 : 20
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <ArrowUp className="h-5 w-5 mx-auto" />
+      </motion.button>
     </div>
   );
 };
